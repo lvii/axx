@@ -1,4 +1,6 @@
+#
 #!/bin/bash
+# © 2021 GitHub, Inc.
 #====================================================================
 # Copyright (c) 2019-2020 iplcdn <https://iplcdn.com>
 #
@@ -199,5 +201,4 @@ find package/luci-app-bypass/* -maxdepth 8 -path "*" | xargs -i sed -i 's/smartd
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
-© 2021 GitHub, Inc.
 #================================================================================================

@@ -51,15 +51,9 @@ sudo apt-get update
 
 3. 使用 `git clone https://github.com/coolsnowwolf/lede` 命令下载好源代码，然后 `cd lede` 进入目录
 
-4. ```bash
-   ./scripts/feeds update -a
-   ./scripts/feeds install -a
-   make menuconfig
-   ```
+4. `make -j8 download V=s` 下载dl库（国内请尽量全局科学上网）
 
-5. `make -j8 download V=s` 下载dl库（国内请尽量全局科学上网）
-
-6. 输入 `make -j1 V=s` （-j1 后面是线程数。第一次编译推荐用单线程）即可开始编译你要的固件了。
+5. 输入 `make -j1 V=s` （-j1 后面是线程数。第一次编译推荐用单线程）即可开始编译你要的固件了。
 
 本套代码保证肯定可以编译成功。里面包括了 R21 所有源代码，包括 IPK 的。
 
@@ -84,19 +78,6 @@ make -j$(($(nproc) + 1)) V=s
 ```
 
 编译完成后输出路径：bin/targets
-
-如果你使用WSL或WSL2进行编译：
-------
-由于wsl的PATH路径中包含带有空格的Windows路径，有可能会导致编译失败，请在将make -j1 V=s或make -j$(($(nproc) + 1)) V=s改为
-
-首次编译：
-```bash
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j1 V=s 
-```
-二次编译：
-```bash
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j$(($(nproc) + 1)) V=s
-```
 
 特别提示：
 ------

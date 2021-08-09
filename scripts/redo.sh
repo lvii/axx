@@ -67,6 +67,7 @@ rm -rf /home/xyz/lede/package/gost
 rm -rf /home/xyz/lede/package/luci-app-ssr-plus
 rm -rf /home/xyz/lede/package/naiveproxy
 rm -rf /home/xyz/lede/package/ssocks
+rm -rf /home/xyz/lede/package/hysteria
 rm -rf /home/xyz/lede/package/xray-core
 rm -rf /home/xyz/lede/package/r8125-mod
 rm -rf /home/xyz/lede/package/xray-plugin
@@ -81,6 +82,7 @@ rm -rf /home/xyz/lede/package/luci-app-ddnsto
 rm -rf /home/xyz/lede/package/shadowsocks-rust
 rm -rf /home/xyz/lede/package/shadowsocksr-libev
 rm -rf /home/xyz/lede/package/v2ray-plugin
+rm -rf /home/xyz/lede/package/v2ray-core
 rm -rf /home/xyz/lede/package/smartdns-le
 rm -rf /home/xyz/lede/package/quickjspp
 rm -rf /home/xyz/lede/package/libcron
@@ -115,11 +117,13 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go /home/xyz/l
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus /home/xyz/lede/package/trojan-plus
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall /home/xyz/lede/package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks /home/xyz/lede/package/ssocks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria /home/xyz/lede/package/hysteria
 svn co https://github.com/fw876/helloworld/trunk/xray-core /home/xyz/lede/package/xray-core
 svn co https://github.com/fw876/helloworld/trunk/xray-plugin /home/xyz/lede/package/xray-plugin
 svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust /home/xyz/lede/package/shadowsocks-rust
 svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev /home/xyz/lede/package/shadowsocksr-libev
 svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin /home/xyz/lede/package/v2ray-plugin
+svn co https://github.com/fw876/helloworld/trunk/v2ray-core /home/xyz/lede/package/v2ray-core
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core /home/xyz/lede/package/xray-core
 
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos /home/xyz/lede/package/luci-app-eqos

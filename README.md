@@ -11,7 +11,7 @@
 
 Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/badge/-云编译固件-green.svg)](#云编译固件-)
 ======================
-默认IP： 10.0.0.1  默认密码： password
+默认IP： 10.0.0.1  默认无密码或者： password
 -------------
 -- 支持的设备平台以及固件下载地址 [![](https://img.shields.io/badge/-设备及固件列表下载-green.svg)](#设备及固件列表下载-)
 -------------

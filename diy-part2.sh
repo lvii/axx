@@ -2,12 +2,12 @@
 #!/bin/bash
 # © 2021 GitHub, Inc.
 #====================================================================
-# Copyright (c) 2019-2020 iplcdn <https://iplcdn.com>
+# Copyright (c) 2019-2021 iplcdn <https://iplcdn.com>
 #
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
 #
-# https://github.com/insChow/Actions-OpenWrt
+# https://github.com/MuaCat/Actions-OpenWrt
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #====================================================================
@@ -19,7 +19,7 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate
 
 # Modify the version number
-sed -i "s/OpenWrt /AutoBuild by MuaChow $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/OpenWrt /AutoBuild by MuaCat $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 # Delete default password
 sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-default-settings

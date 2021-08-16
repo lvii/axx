@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: HIWIFI_HC5962_Clash
+name: HIWIFI_HC5962
 
 on:
   repository_dispatch:
@@ -41,8 +41,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: HIWIFI_HC5962_Clash
-  PRODUCT_NAME: HIWIFI_HC5962_Clash
+  FILE_NAME: HIWIFI_HC5962
+  PRODUCT_NAME: HIWIFI_HC5962
 
 jobs:
   build:

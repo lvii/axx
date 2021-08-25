@@ -19,7 +19,8 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: 0 16 * * *
+    - cron: 0 14 * * *
+  #  每天晚上 22 点自动编译。
   #  watch:
   #    types: started
   #  - cron: 0 8 */5 * *

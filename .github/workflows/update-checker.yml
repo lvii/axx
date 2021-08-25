@@ -21,8 +21,15 @@ env:
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 18 * * *
-
+    - cron: 0 14 * * fri
+  #  每周五晚上 22 点自动编译。
+  #  watch:
+  #    types: started
+  #  - cron: 0 8 */5 * *
+  #  - cron: 0 22,14 * * *
+  #  每天运行两次，在上午 6 点和晚上 22 点。
+  #  - cron: 0 20 * * fri
+  #  每周五凌晨四点自动编译。
 jobs:
   check:
     runs-on: ubuntu-latest

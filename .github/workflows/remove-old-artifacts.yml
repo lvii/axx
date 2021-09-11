@@ -15,6 +15,7 @@
 name: Remove old artifacts
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: 0 14 * * fri
   #  每周五晚上 22 点自动编译。

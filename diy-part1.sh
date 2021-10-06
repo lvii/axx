@@ -21,4 +21,7 @@
 #sed -i '$a src-git OpenClash https://github.com/vernesong/OpenClash'  feeds.conf.default
 #sed -i '$a src-git OpenAppFilter https://github.com/destan19/OpenAppFilter'  feeds.conf.default
 
+### 修改主题文件
+#rm -rf package/lean/luci-theme-argon
+#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 #====================================================================

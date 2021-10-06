@@ -41,7 +41,7 @@ sed -i 's/encryption=none/encryption=psk2/g' package/kernel/mac80211/files/lib/w
 sed -i 's/key=password/key=gds.2021/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 #openwrt-21.02官方系统并不需要upx，出现这个错误是你自行添加的软件包造成的，提示你的系统没有安装 upx 
-git clone https://github.com/kuoruan/openwrt-upx.git package/upx
+#git clone https://github.com/kuoruan/openwrt-upx.git package/upx
 
 git clone https://github.com/kiddin9/openwrt-bypass.git package/luci-app-bypass
 
@@ -152,7 +152,6 @@ svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 chmod 0755 package/luci-app-koolddns/root/etc/init.d/koolddns
 chmod 0755 package/luci-app-koolddns/root/usr/share/koolddns/aliddns
 
-svn co https://github.com/immortalwrt/luci/tree/openwrt-18.06/applications/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #添加subweb&subconverter
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/quickjspp package/quickjspp
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/jpcre2 package/jpcre2

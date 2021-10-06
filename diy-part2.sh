@@ -41,9 +41,8 @@ sed -i 's/encryption=none/encryption=psk2/g' package/kernel/mac80211/files/lib/w
 sed -i 's/key=password/key=gds.2021/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 #openwrt-21.02官方系统并不需要upx，出现这个错误是你自行添加的软件包造成的，提示你的系统没有安装 upx 
-#git clone https://github.com/kuoruan/openwrt-upx.git package/upx
 
-git clone https://github.com/kiddin9/openwrt-bypass.git package/luci-app-bypass
+git clone https://github.com/kiddin9/openwrt-bypass.git package/openwrt-bypass
 
 #添加argon-config 使用 最新argon
 #git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
@@ -220,8 +219,6 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-vssr/Makefile" | xargs -i 
 #修改bypass的makefile
 #find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 #find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
-
-#svn co https://github.com/kiddin9/openwrt-bypass/trunk/luci-app-bypass package/luci-app-bypass
 
 find package/luci-app-bypass/* -maxdepth 8 -path "*" | xargs -i sed -i 's/smartdns-le/smartdns/g' {}
 

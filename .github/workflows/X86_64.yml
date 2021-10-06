@@ -193,16 +193,21 @@ jobs:
       id: release
       uses: ncipollo/release-action@v1
       with:
-        name: R${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
+        name: R${{ env.DATE }} 🚀 | 自动编译 / ${{ env.PRODUCT_NAME }}
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         commit: master
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
+          🚀 Auto build | 自动编译
+          1、本固件为自动编译
+          2、发行版中只提供完整的固件
+          3、需要单独IPK请到分支下载
           默认IP： 10.0.0.1 默认密码： password
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
+
         
 #    - name: Delete workflow runs
 #      uses: GitRML/delete-workflow-runs@main

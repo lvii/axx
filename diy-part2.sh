@@ -42,8 +42,6 @@ sed -i 's/key=password/key=gds.2021/g' package/kernel/mac80211/files/lib/wifi/ma
 
 #openwrt-21.02官方系统并不需要upx，出现这个错误是你自行添加的软件包造成的，提示你的系统没有安装 upx 
 
-git clone https://github.com/kiddin9/openwrt-bypass.git package/openwrt-bypass
-
 #添加argon-config 使用 最新argon
 #git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 #rm -rf package/lean/luci-theme-argon/
@@ -151,6 +149,7 @@ svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 chmod 0755 package/luci-app-koolddns/root/etc/init.d/koolddns
 chmod 0755 package/luci-app-koolddns/root/usr/share/koolddns/aliddns
 
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-unblockneteasemusic-mini package/luci-app-unblockneteasemusic-mini
 #添加subweb&subconverter
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/quickjspp package/quickjspp
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/jpcre2 package/jpcre2
@@ -220,6 +219,7 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-vssr/Makefile" | xargs -i 
 #find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 #find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 
+svn co https://github.com/kiddin9/openwrt-bypass/trunk/luci-app-bypass package/luci-app-bypass
 find package/luci-app-bypass/* -maxdepth 8 -path "*" | xargs -i sed -i 's/smartdns-le/smartdns/g' {}
 
 #temp fix for dnsforwarder
@@ -229,5 +229,4 @@ find package/luci-app-bypass/* -maxdepth 8 -path "*" | xargs -i sed -i 's/smartd
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
-
 #================================================================================================

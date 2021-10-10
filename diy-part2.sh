@@ -158,7 +158,7 @@ svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/quick
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/jpcre2 package/jpcre2
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/libcron/ package/libcron
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/rapidjson package/rapidjson
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/subweb package/subweb
+#svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/subweb package/subweb
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/subconverter package/subconverter
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/toml11 package/toml11
 #添加smartdns

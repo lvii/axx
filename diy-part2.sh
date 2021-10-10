@@ -51,7 +51,7 @@ sed -i 's/key=password/key=gds.2021/g' package/kernel/mac80211/files/lib/wifi/ma
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 
 #sed -i '$a src-git MrH723 https://github.com/MrH723/openwrt-packages' feeds.conf.default
-src-git small https://github.com/kenzok8/small
+git clone https://github.com/kenzok8/small.git package/small
 
 # 修复核心及添加温度显示
 #sed -i 's|pcdata(boardinfo.system or "?")|luci.sys.exec("uname -m") or "?"|g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm

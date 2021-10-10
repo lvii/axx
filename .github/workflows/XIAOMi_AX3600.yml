@@ -162,13 +162,13 @@ jobs:
       id: release
       uses: ncipollo/release-action@v1
       with:
-        name: R${{ env.DATE }} 🚀 | 自动编译 / ${{ env.PRODUCT_NAME }}
+        name: 🚀 ${{ env.DATE }} 自动编译 / ${{ env.PRODUCT_NAME }}
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         commit: master
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
-          🚀 Auto build | 自动编译
+          🚀 Autobuild | 自动编译
           1、本固件为自动编译
           2、发行版中只提供完整的固件
           3、需要单独IPK请到分支下载

@@ -192,7 +192,7 @@ jobs:
       id: release
       uses: ncipollo/release-action@v1
       with:
-        name: 🚀 ${{ env.DATE }} 自动编译 / ${{ env.PRODUCT_NAME }}
+        name: 🚀Autobuild ${{ env.DATE }} / ${{ env.PRODUCT_NAME }}
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         commit: master

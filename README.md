@@ -1,8 +1,4 @@
 
-![GitHub Repo stars](https://img.shields.io/github/stars/MuaCat/Actions-OpenWrt?color=Blue&label=Stars&style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/MuaCat/Actions-OpenWrt?color=Blue&label=Fork&style=for-the-badge)
-![GitHub](https://img.shields.io/github/license/MuaCat/Actions-OpenWrt?color=Blue&style=for-the-badge)
-
 -- 关于第三方全家桶软件仓库更新的说明 [![](https://img.shields.io/badge/-软件库更新说明-green.svg)](#软件库更新说明-)
 -------------
 >固件来源：

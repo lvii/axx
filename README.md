@@ -22,6 +22,7 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 | 2 |   [![](https://img.shields.io/badge/OpenWrt-HiWiFi--HC5962-green.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/hc5962.yml) | [![HIWIFI_HC5962](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/HIWIFI_HC5962.yml/badge.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/HIWIFI_HC5962.yml) |
 | 3 |   [![](https://img.shields.io/badge/OpenWrt-RedMi--AC2100-green.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/mi_ax3600.yml) | [![RedMi_AC2100](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/RedMi_AC2100.yml/badge.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/RedMi_AC2100.yml) |
 | 4 |   [![](https://img.shields.io/badge/OpenWrt-XIAOMI--AX3600-green.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/mi_ax3600.yml) | [![XIAOMi_AX3600](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/XIAOMi_AX3600.yml/badge.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/XIAOMi_AX3600.yml) |
+| 5 |   [![](https://img.shields.io/badge/OpenWrt-RedMi--AX6-green.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/AX6-IPQ8071A.yml) | [![AX6-IPQ8071A](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/AX6-IPQ8071A.yml/badge.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/AX6-IPQ8071A.yml) |
 
 -- 关于自动编译固件的说明 [![](https://img.shields.io/badge/-自动编译说明-green.svg)](#自动编译说明-)
 -------------

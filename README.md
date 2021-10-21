@@ -22,6 +22,9 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 | 4 |   [![](https://img.shields.io/badge/OpenWrt-XIAOMI--AX3600-green.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/mi_ax3600.yml) | [![XIAOMi_AX3600](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/XIAOMi_AX3600.yml/badge.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/XIAOMi_AX3600.yml) |
 | 5 |   [![](https://img.shields.io/badge/OpenWrt-RedMi--AX6-green.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/AX6-IPQ8071A.yml) | [![AX6-IPQ8071A](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/AX6-IPQ8071A.yml/badge.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/AX6-IPQ8071A.yml) |
 
+| 5 |   [![](https://img.shields.io/badge/OpenWrt-RedMi--AX6-green.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/AX6-IPQ8071A.yml) | [![GitHub release (latest by date)](https://img.shields.io/github/v/release/MuaCat/OpenWrt-Actions-AX6-IPQ8071A?style=for-the-badge&label=Download)](https://github.com/MuaCat/OpenWrt-Actions-AX6-IPQ8071A/releases/latest) |
+
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/MuaCat/OpenWrt-Actions-AX6-IPQ8071A?style=for-the-badge&label=Download)](https://github.com/MuaCat/OpenWrt-Actions-AX6-IPQ8071A/releases/latest)
 -- 关于自动编译固件的说明 [![](https://img.shields.io/badge/-自动编译说明-green.svg)](#自动编译说明-)
 -------------
 

@@ -161,7 +161,7 @@ jobs:
       id: release
       uses: ncipollo/release-action@v1
       with:
-        name: 🚀Autobuild ${{ env.DATE }} / ${{ env.PRODUCT_NAME }}
+        name: 🚀Autobuild / ${{ env.PRODUCT_NAME }} / ${{ env.DATE }}
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         commit: master

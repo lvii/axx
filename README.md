@@ -17,7 +17,7 @@
 🐌
 🐌
 🐌
-## 关于第三方全家桶软件仓库更新的说明 [![](https://img.shields.io/badge/-软件库更新说明-green.svg)](#软件库更新说明-)
+关于第三方全家桶软件仓库更新的说明 [![](https://img.shields.io/badge/-软件库更新说明-green.svg)](#软件库更新说明-)
 -------------
 - 固件来源：
 [![Lean](https://img.shields.io/badge/Lede-Lean-red.svg?style=flat&logo=appveyor)](https://github.com/coolsnowwolf/lede) 

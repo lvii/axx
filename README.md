@@ -29,7 +29,7 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 - 云编译脚本会调用此仓库软件编译OpenWrt固件，每日一次编译。
 - 默认IP： 10.0.0.1  默认无密码或者： password
 -------------
--- 支持的设备平台以及固件下载地址 [![](https://img.shields.io/badge/-设备及固件列表下载-green.svg)](#设备及固件列表下载-)
+支持的设备平台以及固件下载地址 [![](https://img.shields.io/badge/-设备及固件列表下载-green.svg)](#设备及固件列表下载-)
 -------------
 
 |    序号   |     平台+设备名称     |   编译状态+下载链接 |  
@@ -40,7 +40,7 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 | 4 |   [![](https://img.shields.io/badge/OpenWrt-XIAOMI--AX3600-green.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/mi_ax3600.yml) | [![XIAOMi_AX3600](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/XIAOMi_AX3600.yml/badge.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/XIAOMi_AX3600.yml) |
 | 5 |   [![](https://img.shields.io/badge/OpenWrt-RedMi--AX6-green.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/AX6-IPQ8071A.yml) | [![AX6-IPQ8071A](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/AX6-IPQ8071A.yml/badge.svg)](https://github.com/MuaCat/Actions-OpenWrt/actions/workflows/AX6-IPQ8071A.yml) |
 
--- 关于自动编译固件的说明 [![](https://img.shields.io/badge/-自动编译说明-green.svg)](#自动编译说明-)
+关于自动编译固件的说明 [![](https://img.shields.io/badge/-自动编译说明-green.svg)](#自动编译说明-)
 -------------
 
 - 每日自动编译，自动拉取最新版本插件。

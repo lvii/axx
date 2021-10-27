@@ -54,6 +54,11 @@ git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-pass
 #sed -i '$a src-git MrH723 https://github.com/MrH723/openwrt-packages' feeds.conf.default
 git clone https://github.com/kenzok8/small.git package/small
 
+#------------------------------阿里云盘Luci 控制面板-------------------------------------------------------------
+git clone https://github.com/jerrykuku/go-aliyundrive-webdav.git package/go-aliyundrive-webdav 
+git clone https://github.com/jerrykuku/luci-app-go-aliyundrive-webdav.git package/luci-app-go-aliyundrive-webdav 
+#-------------------------------------------------------------------------------------------
+
 # 修复核心及添加温度显示
 sed -i 's|pcdata(boardinfo.system or "?")|luci.sys.exec("uname -m") or "?"|g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 sed -i 's/or "1"%>/or "1"%> ( <%=luci.sys.exec("expr `cat \/sys\/class\/thermal\/thermal_zone0\/temp` \/ 1000") or "?"%> \&#8451; ) /g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm

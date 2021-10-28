@@ -124,6 +124,8 @@ svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
 svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
 svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
 svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
+svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/simple-obfs
+svn co https://github.com/fw876/helloworld/trunk/trojan package/trojan
 svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/v2ray-core
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-gost package/luci-app-gost
@@ -159,6 +161,7 @@ svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 chmod 0755 package/luci-app-koolddns/root/etc/init.d/koolddns
 chmod 0755 package/luci-app-koolddns/root/usr/share/koolddns/aliddns
 
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-unblockneteasemusic-mini package/luci-app-unblockneteasemusic-mini
 #添加subweb&subconverter
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/quickjspp package/quickjspp
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/jpcre2 package/jpcre2
@@ -171,7 +174,7 @@ svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/toml1
 #svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/smartdns package/smartdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
 svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-smartdns package/luci-app-smartdns
 
 #git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
 #git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
@@ -228,8 +231,8 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-vssr/Makefile" | xargs -i 
 #find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 #find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 
-#svn co https://github.com/kiddin9/openwrt-bypass/trunk/luci-app-bypass package/luci-app-bypass
-#find package/luci-app-bypass/* -maxdepth 8 -path "*" | xargs -i sed -i 's/smartdns-le/smartdns/g' {}
+svn co https://github.com/kiddin9/openwrt-bypass/trunk/luci-app-bypass package/luci-app-bypass
+find package/luci-app-bypass/* -maxdepth 8 -path "*" | xargs -i sed -i 's/smartdns-le/smartdns/g' {}
 
 #temp fix for dnsforwarder
 #sed -i "s/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https:\/\/github\.com\/1715173329\/dnsforwarder\.git/" package/lean/dnsforwarder/Makefile

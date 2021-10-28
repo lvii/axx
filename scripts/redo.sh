@@ -84,6 +84,8 @@ rm -rf /home/xyz/lede/package/shadowsocks-rust
 rm -rf /home/xyz/lede/package/shadowsocksr-libev
 rm -rf /home/xyz/lede/package/v2ray-plugin
 rm -rf /home/xyz/lede/package/v2ray-core
+rm -rf /home/xyz/lede/package/simple-obfs
+rm -rf /home/xyz/lede/package/trojan
 rm -rf /home/xyz/lede/package/smartdns-le
 rm -rf /home/xyz/lede/package/quickjspp
 rm -rf /home/xyz/lede/package/libcron
@@ -125,6 +127,8 @@ svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust /home/xyz/lede
 svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev /home/xyz/lede/package/shadowsocksr-libev
 svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin /home/xyz/lede/package/v2ray-plugin
 svn co https://github.com/fw876/helloworld/trunk/v2ray-core /home/xyz/lede/package/v2ray-core
+svn co https://github.com/fw876/helloworld/trunk/simple-obfs /home/xyz/lede/package/simple-obfs
+svn co https://github.com/fw876/helloworld/trunk/trojan /home/xyz/lede/package/trojan
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core /home/xyz/lede/package/xray-core
 
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos /home/xyz/lede/package/luci-app-eqos
@@ -170,7 +174,7 @@ svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/subcon
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/toml11 /home/xyz/lede/package/toml11
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/udp2raw-tunnel /home/xyz/lede/package/udp2raw-tunnel
 svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-udp2raw /home/xyz/lede/package/luci-app-udp2raw
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns /home/xyz/lede/package/luci-app-smartdns
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-smartdns /home/xyz/lede/package/luci-app-smartdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns /home/xyz/lede/package/smartdns
 svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le /home/xyz/lede/package/smartdns-le
 #svn co https://github.com/openwrt/luci/trunk/applications/luci-app-ksmbd /home/xyz/lede/package/luci-app-ksmbd

@@ -31,6 +31,11 @@ sed -i 's/OpenWrt /AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g' package/
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 git clone https://github.com/siropboy/sirpdboy-package package/sirpdboy-package
 
+#添加argon-config 使用 最新argon
+git clone https://github.com/jerrykuku/luci-app-argon-config package/lean/luci-app-argon-config
+rm -rf package/lean/luci-theme-argon/
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
+
 # 修改默认wifi名称ssid为100
 # sed -i 's/ssid=OpenWrt/ssid=100/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
@@ -207,10 +212,7 @@ sed -i "s|.img.gz|+_FOL+SFE.img.gz|g" package/luci-app-amlogic/root/etc/config/a
 # 4.Set the download path of the kernel in your github.com repository
 sed -i "s|opt/kernel|BuildARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 
-#添加argon-config 使用 最新argon
-git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-rm -rf package/lean/luci-theme-argon/
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+
 #修改makefile
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/lang\/golang\/golang\-package\.mk/include \$(TOPDIR)\/feeds\/packages\/lang\/golang\/golang\-package\.mk/g' {}

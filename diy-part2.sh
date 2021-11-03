@@ -46,17 +46,14 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/lu
 #wifi密码
 #sed -i 's/key=password/key=gds.2021/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
-#openwrt-21.02官方系统并不需要upx，出现这个错误是你自行添加的软件包造成的，提示你的系统没有安装 upx 
-
 #添加argon-config 使用 最新argon
-#git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-#rm -rf package/lean/luci-theme-argon/
-#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+rm -rf package/lean/luci-theme-argon/
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 
 #passwall依赖
-git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
-
-git clone https://github.com/kenzok8/small.git package/small
+#git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
+#git clone https://github.com/kenzok8/small.git package/small
 
 # 修复核心及添加温度显示
 #sed -i 's|pcdata(boardinfo.system or "?")|luci.sys.exec("uname -m") or "?"|g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
@@ -77,12 +74,6 @@ rm -rf package/lean/luci-app-dockerman
 rm -rf package/lean/luci-app-wrtbwmon
 rm -rf feeds/packages/net/smartdns
 #添加额外软件包
-
-#replace mirrors
-#rm -rf ./include
-#rm -rf ./ scripts
-#svn co https://github.com/immortalwrt/immortalwrt/trunk/include
-#svn co https://github.com/immortalwrt/immortalwrt/trunk/scripts
 
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 git clone https://github.com/jerrykuku/luci-app-ttnode.git package/luci-app-ttnode

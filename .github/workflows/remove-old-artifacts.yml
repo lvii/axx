@@ -15,9 +15,9 @@
 name: Remove old artifacts
 
 on:
-  #workflow_dispatch:
-  #schedule:
-  #  - cron: 0 14 * * *
+  workflow_dispatch:
+  schedule:
+    - cron: 0 20 * * fri
   #  每天晚上 22 点自动编译。
   #  watch:
   #    types: started
@@ -55,4 +55,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
-  

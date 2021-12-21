@@ -5,7 +5,7 @@
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
 #
-# https://github.com/MuaCat/Actions-OpenWrt
+# https://github.com/joyblablabla/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
 #
 # File: .github/workflows/update-checker.yml
@@ -17,7 +17,7 @@ name: Remove old artifacts
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 14 * * *
+  #  - cron: 0 14 * * *
   #  每天晚上 22 点自动编译。
   #  watch:
   #    types: started
@@ -55,4 +55,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
-        
+  

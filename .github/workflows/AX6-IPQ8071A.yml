@@ -4,7 +4,7 @@
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
 #
-# https://github.com/MuaCat/Actions-OpenWrt
+# https://github.com/joyblablabla/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
@@ -17,10 +17,10 @@ on:
       ssh:
         description: 'SSH connection to Actions'
         required: false
-        default: 'false'
+        default: 'false'      
   schedule:
     - cron: 0 16 * * *
-  #  每天晚上凌晨0点自动编译。
+  #  每天晚上凌晨0点自动编译.
   #  watch:
   #    types: started
   #  - cron: 0 8 */5 * *
@@ -69,6 +69,7 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
+        
     - name: Clone source code
       working-directory: /workdir
       run: |
@@ -83,12 +84,12 @@ jobs:
 #        echo "::set-env name=useVersionInfo::$useVersionInfo"
 #        echo "::set-env name=DATE::$(date "+%Y-%m-%d %H:%M:%S")"
 
-    #- name: Load custom feeds
-    #  run: |
-    #    [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-    #    chmod +x $DIY_P1_SH
-    #    cd openwrt
-    #    ../$DIY_P1_SH
+    - name: Load custom feeds
+      run: |
+        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
+        chmod +x $DIY_P1_SH
+        cd openwrt
+        $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -104,9 +105,12 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
         
-#     - name: SSH connection to Actions
-#       uses: P3TERX/debugger-action@master
-#       if: env.SSH_ACTIONS == 'true' || contains(github.event.action, 'ssh')
+    - name: SSH connection to Actions
+      uses: P3TERX/ssh2actions@v1.0.0
+      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
+      #env:
+      #  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      #  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
     - name: Download package
       id: package
@@ -128,7 +132,6 @@ jobs:
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
 #        [ -s DEVICE_NAME ] && echo "::set-env name=DEVICE_NAME::_$(cat DEVICE_NAME)"
 #        echo "::set-env name=FILE_DATE::_$(date +"%Y%m%d%H%M")"
-
     - name: Check space usage
       if: (!cancelled())
       run: df -hT
@@ -150,6 +153,7 @@ jobs:
         rm -rf packages config.buildinfo feeds.buildinfo sha256sums version.buildinfo *.manifest
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
+
     - name: Upload firmware directory
       uses: actions/upload-artifact@master
       if: env.UPLOAD_FIRMWARE == 'true' && steps.organize.outputs.status == 'success' && !cancelled()
@@ -176,17 +180,17 @@ jobs:
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
 
-#    - name: Delete workflow runs
-#      uses: GitRML/delete-workflow-runs@main
-#      with:
-#        retain_days: 1
-#        keep_minimum_runs: 5
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 1
+        keep_minimum_runs: 3
 
-#    - name: Remove old Releases
-#      uses: dev-drprasad/delete-older-releases@v0.1.0
-#      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-#      with:
-#        keep_latest: 5
-#        delete_tags: true
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@v0.1.0
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        keep_latest: 3
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

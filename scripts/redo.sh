@@ -21,7 +21,7 @@ cd /home/xyz/lede/package/luci-theme-atmaterial && git pull
 cd /home/xyz/lede/package/luci-app-koolddns && git pull
 cd /home/xyz/lede/package/luci-app-autoipsetadder && git pull
 #cd /home/xyz/lede/package/luci-app-dnsfilter && git pull
-cd /home/xyz/lede/package/luci-app-godproxy && git pull
+cd /home/xyz/lede/package/luci-app-ikoolproxy && git pull
 cd /home/xyz/lede/package/luci-app-advanced && git pull
 cd /home/xyz/lede/package/luci-app-argon-config && git pull
 cd /home/xyz/lede/package/luci-theme-argon && git pull
@@ -41,14 +41,14 @@ rm -rf /home/xyz/lede/package/luci-app-smartdns
 rm -rf /home/xyz/lede/package/smartdns
 rm -rf /home/xyz/lede/package/wrtbwmon
 rm -rf /home/xyz/lede/package/luci-app-bypass
-rm -rf /home/xyz/lede/package/lean/luci-app-wrtbwmon
+rm -rf /home/xyz/lede/feeds/luci/applications/luci-app-wrtbwmon
 #rm -rf /home/xyz/lede/package/luci-app-wrtbwmon
 rm -rf /home/xyz/lede/package/luci-theme-rosy
 #rm -rf /home/xyz/lede/package/luci-theme-purple
 rm -rf /home/xyz/lede/package/luci-theme-darkmatter
 rm -rf /home/xyz/lede/package/luci-theme-opentomato
 rm -rf /home/xyz/lede/package/luci-theme-edge
-rm -rf /home/xyz/lede/package/lean/luci-theme-argon
+rm -rf /home/xyz/lede/feeds/luci/themes/luci-theme-argon
 #rm -rf /home/xyz/lede/package/luci-theme-argon_new
 rm -rf /home/xyz/lede/package/luci-app-openclash
 rm -rf /home/xyz/lede/package/brook
@@ -86,15 +86,17 @@ rm -rf /home/xyz/lede/package/v2ray-plugin
 rm -rf /home/xyz/lede/package/v2ray-core
 rm -rf /home/xyz/lede/package/simple-obfs
 rm -rf /home/xyz/lede/package/trojan
-rm -rf /home/xyz/lede/package/smartdns-le
+#rm -rf /home/xyz/lede/package/smartdns-le
 rm -rf /home/xyz/lede/package/quickjspp
 rm -rf /home/xyz/lede/package/libcron
 rm -rf /home/xyz/lede/package/smartdns
 rm -rf /home/xyz/lede/feeds/packages/net/smartdns
-rm -rf /home/xyz/lede/package/udp2raw-tunnel
+rm -rf /home/xyz/lede/package/udp2raw
 rm -rf /home/xyz/lede/package/luci-app-udp2raw
 rm -rf /home/xyz/lede/package/luci-app-amlogic
-rm -rf /home/xyz/lede/package/luci-app-dockerman
+rm -rf /home/xyz/lede/feeds/luci/applications/luci-app-dockerman
+rm -rf /home/xyz/lede/package/app-store-ui
+rm -rf /home/xyz/lede/package/luci-app-store
 
 svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman /home/xyz/lede/package/luci-app-dockerman
 #cp -r /home/xyz/lede/luci-app-wrtbwmon/luci-app-wrtbwmon /home/xyz/lede/package/
@@ -105,7 +107,7 @@ find /home/xyz/lede/package/*/ /home/xyz/lede/feeds/*/ -maxdepth 2 -path "*luci-
 find /home/xyz/lede/package/*/ /home/xyz/lede/feeds/*/ -maxdepth 2 -path "*luci-app-vssr/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-server/shadowsocksr-libev-ssr-server/g' {}
 #find /home/xyz/lede/package/*/ /home/xyz/lede/feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 #find /home/xyz/lede/package/*/ /home/xyz/lede/feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
-find /home/xyz/lede/package/luci-app-bypass/* -maxdepth 8 -path "*" | xargs -i sed -i 's/smartdns-le/smartdns/g' {}
+#find /home/xyz/lede/package/luci-app-bypass/* -maxdepth 8 -path "*" | xargs -i sed -i 's/smartdns-le/smartdns/g' {}
 svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy /home/xyz/lede/package/luci-theme-rosy
 #svn co https://github.com/rosywrt/luci-theme-purple/trunk/luci-theme-purple /home/xyz/lede/package/luci-theme-purple
 svn co https://github.com/apollo-ng/luci-theme-darkmatter/trunk/luci/themes/luci-theme-darkmatter /home/xyz/lede/package/luci-theme-darkmatter
@@ -118,7 +120,8 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng /home/xyz
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping /home/xyz/lede/package/tcping
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go /home/xyz/lede/package/trojan-go
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus /home/xyz/lede/package/trojan-plus
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall /home/xyz/lede/package/luci-app-passwall
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall /home/xyz/lede/package/luci-app-passwall
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-passwall /home/xyz/lede/package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks /home/xyz/lede/package/ssocks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria /home/xyz/lede/package/hysteria
 svn co https://github.com/fw876/helloworld/trunk/xray-core /home/xyz/lede/package/xray-core
@@ -136,6 +139,11 @@ svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos /home/xyz
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/gost /home/xyz/lede/package/gost
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus /home/xyz/lede/package/luci-app-ssr-plus
 svn co https://github.com/fw876/helloworld/trunk/naiveproxy /home/xyz/lede/package/naiveproxy
+
+#添加istore
+svn co https://github.com/linkease/istore-ui/trunk/app-store-ui /home/xyz/lede/package/app-store-ui
+svn co https://github.com/linkease/istore/trunk/luci/luci-app-store /home/xyz/lede/package/luci-app-store
+sed -i 's/luci-lib-ipkg/luci-base/g' /home/xyz/lede/package/luci-app-store/Makefile
 
 #添加luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic /home/xyz/lede/package/luci-app-amlogic
@@ -172,15 +180,15 @@ svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/gost /
 svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-unblockneteasemusic-mini /home/xyz/lede/package/luci-app-unblockneteasemusic-mini
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/subconverter /home/xyz/lede/package/subconverter
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/toml11 /home/xyz/lede/package/toml11
-svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/udp2raw-tunnel /home/xyz/lede/package/udp2raw-tunnel
+svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/udp2raw /home/xyz/lede/package/udp2raw
 svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-udp2raw /home/xyz/lede/package/luci-app-udp2raw
 svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-smartdns /home/xyz/lede/package/luci-app-smartdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns /home/xyz/lede/package/smartdns
-svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le /home/xyz/lede/package/smartdns-le
+#svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le /home/xyz/lede/package/smartdns-le
 #svn co https://github.com/openwrt/luci/trunk/applications/luci-app-ksmbd /home/xyz/lede/package/luci-app-ksmbd
 chmod 0755 /home/xyz/lede/package/luci-app-koolddns/root/etc/init.d/koolddns
 chmod 0755 /home/xyz/lede/package/luci-app-koolddns/root/usr/share/koolddns/aliddns
-sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' /home/xyz/lede/package/lean/luci-app-cpufreq/Makefile
+sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' /home/xyz/lede/feeds/luci/applications/luci-app-cpufreq/Makefile
 
 svn co https://github.com/linkease/ddnsto-openwrt/trunk/ddnsto /home/xyz/lede/package/ddnsto
 svn co https://github.com/linkease/ddnsto-openwrt/trunk/luci-app-ddnsto /home/xyz/lede/package/luci-app-ddnsto

@@ -27,7 +27,7 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
  [![Lienol](https://img.shields.io/badge/Package-Lienol-blueviolet.svg?style=flat&logo=appveyor)](https://github.com/Lienol/openwrt-package)  [![CTCGFW](https://img.shields.io/badge/OpenWrt-CTCGFW-orange.svg?style=flat&logo=appveyor)](https://github.com/project-openwrt/openwrt) [![joyblablabla](https://img.shields.io/badge/Mod-joyblablabla-success.svg?style=flat&logo=appveyor)](https://github.com/joyblablabla/Actions-OpenWrt/actions)
 - 每日两次自动拉取更新所有上游源码至上方软件仓库，所以此软件仓库永远都是最新的。
 - 云编译脚本会调用此仓库软件编译OpenWrt固件，每日一次编译。
-- 默认IP： 10.0.0.1  默认无密码或者： password
+- 默认IP： 192.168.1.1  默认无密码或者： password
 -------------
 支持的设备平台以及固件下载地址 [![](https://img.shields.io/badge/-设备及固件列表下载-green.svg)](#设备及固件列表下载-)
 -------------

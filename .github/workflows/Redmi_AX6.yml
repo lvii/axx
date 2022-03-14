@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: Redmi_AX6-IPQ8071A
+name: Redmi_AX6
 
 on:
   repository_dispatch:
@@ -42,8 +42,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: Redmi_AX6-IPQ8071A
-  PRODUCT_NAME: Redmi_AX6-IPQ8071A
+  FILE_NAME: Redmi_AX6
+  PRODUCT_NAME: Redmi_AX6
 
 jobs:
   build:

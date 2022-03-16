@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: Redmi_AX6
+name: RedMi_AX6
 
 on:
   repository_dispatch:
@@ -33,7 +33,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/Redmi_AX6.config
+  CONFIG_FILE: config/RedMi_AX6.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
@@ -42,8 +42,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: Redmi_AX6
-  PRODUCT_NAME: Redmi_AX6
+  FILE_NAME: RedMi_AX6
+  PRODUCT_NAME: RedMi_AX6
 
 jobs:
   build:

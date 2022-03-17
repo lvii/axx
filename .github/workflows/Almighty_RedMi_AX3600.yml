@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: RedMi_AX3600
+name: Almighty_RedMi_AX3600
 
 on:
   repository_dispatch:
@@ -30,7 +30,7 @@ on:
   #  每周五凌晨四点自动编译。
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/Boos4721/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/RedMi_AX3600.config
@@ -42,8 +42,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: RedMi_AX3600
-  PRODUCT_NAME: RedMi_AX3600
+  FILE_NAME: Almighty_RedMi_AX3600
+  PRODUCT_NAME: Almighty_RedMi_AX3600
 
 jobs:
   build:

@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: RedMi_AX9000
+name: Almighty_RedMi_AX9000
 
 on:
   repository_dispatch:
@@ -30,8 +30,8 @@ on:
   #  每周五凌晨四点自动编译。
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/robimarko/openwrt
+  REPO_BRANCH: ipq807x-5.15
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/RedMi_AX9000.config
   DIY_P1_SH: diy-part1.sh

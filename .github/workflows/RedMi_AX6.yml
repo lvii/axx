@@ -179,6 +179,7 @@ jobs:
           此版本是全能版本，也是自定义版本，涵盖所有插件，想要榨干路由器性能和内存的朋友可以尝试刷入.
           支持已刷WEB升级的openwrt固件，刷入方式：首选恢复出厂设置，然后再系统升级不保留配置刷入.
           全能版每天都会拉取最新源码更新.
+          默认IP： 192.168.31.1 默认密码： password
           Boos4721源编译的固件特别说明： 管理地址：10.10.10.1 登陆密码：boos 无线密码：1234567890
           2022-3-8更新配置文件,新增小米IPQ807X全系列最新内核5.15，删除冲突及多余的插件.
           就算不精简插件云编译差不多才2小时左右完成所有的.
@@ -200,3 +201,13 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Telegram notification
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          编译时间：${{ env.DATE }}
+          lede更新信息：${{ env.useVersionInfo }}
+          ${{ env.PRODUCT_NAME }}编译完成        

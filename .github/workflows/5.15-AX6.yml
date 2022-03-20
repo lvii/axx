@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: RedMi_AX6
+name: 5.15-DEV-AX6
 
 on:
   repository_dispatch:
@@ -33,7 +33,7 @@ env:
   REPO_URL: https://github.com/robimarko/openwrt
   REPO_BRANCH: ipq807x-5.15
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/RedMi_AX6.config
+  CONFIG_FILE: config/AX6-5.15.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
@@ -179,9 +179,9 @@ jobs:
           此版本是全能版本，也是自定义版本，涵盖所有插件，想要榨干路由器性能和内存的朋友可以尝试刷入.
           支持已刷WEB升级的openwrt固件，刷入方式：首选恢复出厂设置，然后再系统升级不保留配置刷入.
           全能版每天都会拉取最新源码更新.
-          默认IP： 192.168.31.1 默认密码： password
+          默认IP： 10.0.0.1 默认密码： password
           Boos4721源编译的固件特别说明： 管理地址：10.10.10.1 登陆密码：boos 无线密码：1234567890
-          2022-3-8更新配置文件,新增小米IPQ807X全系列最新内核5.15，删除冲突及多余的插件.
+          2022-3-8更新配置文件,新增robimarko小米IPQ807X全系列最新内核5.15，删除冲突及多余的插件.
           就算不精简插件云编译差不多才2小时左右完成所有的.
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}

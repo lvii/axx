@@ -208,6 +208,7 @@ jobs:
           1、本固件为自动编译
           2、发行版中只提供完整的固件
           3、需要单独IPK请到分支下载
+          默认IP： 192.168.1.1 默认密码： password
           新增天灵源码immortalwrt-5.4内核docker版本，不带docker是精简版，相比lean的源码更稳定，更丝滑！更急速！
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}

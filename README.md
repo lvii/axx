@@ -50,7 +50,7 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 
 AX6s固件编译
 
-由于AX6s需要应用Patch来更改固件OOB_Size，因而单独开一仓库用于编译。 新Patch，优化分区：ax6s_namidairo1.patch
+由于AX6s需要应用Patch来更改固件OOB_Size，新Patch，优化分区：ax6s_namidairo1.patch
 
 Installation:
 

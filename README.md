@@ -45,7 +45,32 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 
 - 每日自动编译，自动拉取最新版本插件。
 - 自用固件仅包含 （pw,S,上网时间控制，upnp,ddns,去广告，多拨，负载均衡，流量监控，主题只加入了jerrykuku的18.06 luci-theme-argon以及infinityfreedom等主题）
+======================
+1. Flash stock Xiaomi "closed beta" image labelled
+'miwifi_rb03_firmware_stable_1.2.7_closedbeta.bin'.
+(MD5: 5eedf1632ac97bb5a6bb072c08603ed7)
 
+2. Calculate telnet password from serial number and login
+
+3. Execute commands to prepare device
+nvram set ssh_en=1
+nvram set uart_en=1
+nvram set boot_wait=on
+nvram set flag_boot_success=1
+nvram set flag_try_sys1_failed=0
+nvram set flag_try_sys2_failed=0
+nvram commit
+
+4. Download and flash image
+On computer:
+python -m http.server
+On router:
+cd /tmp
+wget http://<IP>:8000/factory.bin
+mtd -r write factory.bin firmware
+
+Device should reboot at this point.
+======================
 手动编译
 ======================
 1. 首先装好 Ubuntu 64bit，推荐  Ubuntu  18 LTS x64  

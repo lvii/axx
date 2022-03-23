@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: Redmi_AX6S
+name: Redmi_AX6s_Namidairo_Patch
 
 on:
   repository_dispatch:
@@ -17,7 +17,15 @@ on:
       ssh:
         description: 'SSH connection to Actions'
         required: false
-        default: 'false'      
+        default: 'false'
+      need_patch: 
+        description: 'Need Patch?'
+        required: false
+        default: 'true'
+      patch_filename:
+        description: 'Patch Filename'
+        required: false
+        default: 'ax6s.patch'      
   schedule:
     - cron: 0 16 * * *
   #  每天晚上凌晨0点自动编译.
@@ -30,8 +38,8 @@ on:
   #  每周五凌晨四点自动编译。
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/namidairo/openwrt
+  REPO_BRANCH: ax6s
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/AX6S.config
   DIY_P1_SH: diy-part1.sh

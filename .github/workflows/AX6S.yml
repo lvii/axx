@@ -38,9 +38,8 @@ on:
   #  每周五凌晨四点自动编译。
 
 env:
-  REPO_URL: https://github.com/namidairo/openwrt
-  REPO_BRANCH: ax6s
-  FEEDS_CONF: feeds.conf.default
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
   CONFIG_FILE: config/AX6S.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
@@ -91,6 +90,21 @@ jobs:
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
 #        echo "::set-env name=useVersionInfo::$useVersionInfo"
 #        echo "::set-env name=DATE::$(date "+%Y-%m-%d %H:%M:%S")"
+
+    - name: Apply patch
+      working-directory: /workdir
+      if: (github.event.inputs.need_patch == 'true' && github.event.inputs.need_patch  != 'false') 
+      run: |
+        cd openwrt
+        git apply $GITHUB_WORKSPACE/${{ github.event.inputs.patch_filename }}
+
+    - name: Apply patch
+      working-directory: /workdir
+      if: (github.event.inputs.need_patch == 'true' && github.event.inputs.need_patch  != 'false') 
+      run: |
+        cd openwrt
+        git apply $GITHUB_WORKSPACE/${{ github.event.inputs.patch_filename }}
+
 
     - name: Load custom feeds
       run: |

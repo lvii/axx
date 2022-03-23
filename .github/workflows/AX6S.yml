@@ -42,7 +42,6 @@ env:
   REPO_BRANCH: ax6s
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/AX6S.config
-  PATCH_FILE:：config/ax6s_namidairo1.patch
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true

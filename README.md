@@ -45,7 +45,8 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 
 - 每日自动编译，自动拉取最新版本插件。
 - 自用固件仅包含 （pw,S,上网时间控制，upnp,ddns,去广告，多拨，负载均衡，流量监控，主题只加入了jerrykuku的18.06 luci-theme-argon以及infinityfreedom等主题）
-======================
+
+-------------
 
 AX6s固件编译
 

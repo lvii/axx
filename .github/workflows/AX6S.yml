@@ -99,14 +99,6 @@ jobs:
         cd openwrt
         git apply $GITHUB_WORKSPACE/${{ github.event.inputs.patch_filename }}
 
-    - name: Apply patch
-      working-directory: /workdir
-      if: (github.event.inputs.need_patch == 'true' && github.event.inputs.need_patch  != 'false') 
-      run: |
-        cd openwrt
-        git apply $GITHUB_WORKSPACE/${{ github.event.inputs.patch_filename }}
-
-
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default

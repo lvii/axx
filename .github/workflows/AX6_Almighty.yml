@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: AX6 Almighty Edition
+name: Almighty_AX6
 
 on:
   repository_dispatch:

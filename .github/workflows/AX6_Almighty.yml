@@ -30,8 +30,8 @@ on:
   #  每周五凌晨四点自动编译。
 
 env:
-  REPO_URL: https://github.com/Boos4721/openwrt
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/robimarko/openwrt
+  REPO_BRANCH: ipq807x-5.15
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/AX6.config
   DIY_P1_SH: diy-part1.sh
@@ -179,7 +179,7 @@ jobs:
           全能版每天都会拉取最新源码更新.
           默认IP： 10.0.0.1 默认密码： password
           Boos4721源编译的固件特别说明： 管理地址：10.10.10.1 登陆密码：boos 无线密码：1234567890
-          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/Boos4721/openwrt)更新记录】
+          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/robimarko/openwrt)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
 

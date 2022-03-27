@@ -179,7 +179,7 @@ jobs:
           全能版每天都会拉取最新源码更新.
           默认IP： 10.0.0.1 默认密码： password
           Boos4721源编译的固件特别说明： 管理地址：10.10.10.1 登陆密码：boos 无线密码：1234567890
-          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
+          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/Boos4721/openwrt)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
 

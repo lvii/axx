@@ -179,7 +179,7 @@ jobs:
           默认IP： 10.0.0.1 默认密码： password
           2022-3-8更新配置文件,新增robimarko小米IPQ807X全系列最新内核5.15，删除冲突及多余的插件.
           就算不精简插件云编译差不多才2小时左右完成所有的.
-          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
+          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/robimarko/openwrt)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
 

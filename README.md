@@ -27,7 +27,8 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
  [![Lienol](https://img.shields.io/badge/Package-Lienol-blueviolet.svg?style=flat&logo=appveyor)](https://github.com/Lienol/openwrt-package)  [![CTCGFW](https://img.shields.io/badge/OpenWrt-CTCGFW-orange.svg?style=flat&logo=appveyor)](https://github.com/project-openwrt/openwrt) [![joyblablabla](https://img.shields.io/badge/Mod-Joecaicai-success.svg?style=flat&logo=appveyor)](https://github.com/Joecaicai/Actions-OpenWrt/actions)
 - 每日两次自动拉取更新所有上游源码至上方软件仓库，所以此软件仓库永远都是最新的。
 - 云编译脚本会调用此仓库软件编译OpenWrt固件，每日一次编译。
-- 默认IP： 192.168.1.1  默认无密码或者： password
+- 源编译的固件特别说明： 管理地址默认IP：10.0.0.1 
+- 登陆密码：默认无密码或者：password 无线密码：gds.2021
 -------------
 支持的设备平台以及固件下载地址 [![](https://img.shields.io/badge/-设备及固件列表下载-green.svg)](#设备及固件列表下载-)
 -------------
@@ -47,39 +48,6 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 - 自用固件仅包含 （pw,S,上网时间控制，upnp,ddns,去广告，多拨，负载均衡，流量监控，主题只加入了jerrykuku的18.06 luci-theme-argon以及infinityfreedom等主题）
 
 -------------
-
-AX6s固件编译
-
-由于AX6s需要应用Patch来更改固件OOB_Size，新Patch，优化分区：ax6s_namidairo1.patch
-
-Installation:
-
-1. Flash stock Xiaomi "closed beta" image labelled
-'miwifi_rb03_firmware_stable_1.2.7_closedbeta.bin'.
-(MD5: 5eedf1632ac97bb5a6bb072c08603ed7)
-
-2. Calculate telnet password from serial number and login
-
-3. Execute commands to prepare device
-nvram set ssh_en=1
-nvram set uart_en=1
-nvram set boot_wait=on
-nvram set flag_boot_success=1
-nvram set flag_try_sys1_failed=0
-nvram set flag_try_sys2_failed=0
-nvram commit
-
-4. Download and flash image
-On computer:
-python -m http.server
-On router:
-cd /tmp
-wget http://<IP>:8000/factory.bin
-mtd -r write factory.bin firmware
-
-Device should reboot at this point.
-
-
 手动编译
 ======================
 1. 首先装好 Ubuntu 64bit，推荐  Ubuntu  18 LTS x64  

@@ -42,8 +42,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: RedMi_AX6
-  PRODUCT_NAME: RedMi_AX6
+  FILE_NAME: 5.15-DEV-AX6
+  PRODUCT_NAME: 5.15-DEV-AX6
 
 jobs:
   build:

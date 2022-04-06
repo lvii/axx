@@ -35,11 +35,6 @@ sed -i 's/OpenWrt /AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g' package/
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 # themes添加（svn co 命令意思：指定版本如https://github）
 
-# 修改连接数
-#sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
-#修正连接数（by ベ七秒鱼ベ）
-sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sysctl.conf
-
 # 修改默认wifi名称ssid为100
 #sed -i 's/ssid=OpenWrt/ssid=100/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
@@ -63,6 +58,33 @@ sed -i 's/key=password/key=gds.2021/g' package/kernel/mac80211/files/lib/wifi/ma
 #[ -z $(grep "CONFIG_KERNEL_BUILD_DOMAIN=" .config) ] &&
 #    echo 'CONFIG_KERNEL_BUILD_DOMAIN="GitHub Actions"' >>.config ||
 #    sed -i 's@\(CONFIG_KERNEL_BUILD_DOMAIN=\).*@\1$"GitHub Actions"@' .config
+#================================================================================================
+# 修改连接数
+#sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=165535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+#修正连接数（by ベ七秒鱼ベ）
+sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
+
+# themes添加（svn co 命令意思：指定版本如https://github）
+git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
+git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
+git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/luci-theme-atmaterial
+git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+
+git clone https://github.com/kiddin9/openwrt-packages.git package/openwrt-packages
+
+git clone https://github.com/sirpdboy/luci-app-netdata.git package/luci-app-netdata
+
+#添加额外非必须软件包
+git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
+git clone https://github.com/vernesong/OpenClash.git package/OpenClash
+#git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+git clone https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
+git clone https://github.com/riverscn/openwrt-iptvhelper.git package/openwrt-iptvhelper
+#git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
+#添加smartdns
+git clone https://github.com/kiddin9/luci-app-dnsfilter.git package/luci-app-dnsfilter
+git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
+git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
 #================================================================================================
 #移除不用软件包    
 rm -rf feeds/luci/applications/luci-app-dockerman
@@ -201,7 +223,7 @@ sed -i "s|https.*/OpenWrt|https://github.com/HoldOnBro/Actions-OpenWrt|g" packag
 #sed -i "s|ARMv8|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # 3.Set the suffix of the OPENWRT files in your github.com Releases
-sed -i "s|.img.gz|+_FOL+SFE.img.gz|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|.img.gz|_FOL+SFE.img.gz|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # 4.Set the download path of the kernel in your github.com repository
 sed -i "s|opt/kernel|BuildARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic

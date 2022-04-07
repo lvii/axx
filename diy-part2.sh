@@ -23,7 +23,7 @@ sed -i 's/10.10.10.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 # Delete default password
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
 # Delete default password:boos
-sed -i '/HBAtVXABp7XbvVjG4193B/d' package/lean/default-settings/files/zzz-default-settings
+#sed -i '/HBAtVXABp7XbvVjG4193B/d' package/lean/default-settings/files/zzz-default-settings
 
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 sed -i 's/OpenWrt /AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g' package/lean/default-settings/files/zzz-default-settings

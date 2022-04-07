@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: 5.15-DEV-AX6
+name: 5.15_AX6
 
 on:
   repository_dispatch:
@@ -42,8 +42,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: 5.15-DEV-AX6
-  PRODUCT_NAME: 5.15-DEV-AX6
+  FILE_NAME: 5.15_AX6
+  PRODUCT_NAME: 5.15_AX6
 
 jobs:
   build:
@@ -176,9 +176,10 @@ jobs:
           2、发行版中只提供完整的固件
           3、需要单独IPK请到分支下载
           4、驱动：默认NSS加速和sfe加速
+          支持已刷WEB升级的openwrt固件，刷入方式：首选恢复出厂设置，然后再系统升级不保留配置刷入.
+          2022-3-8更新配置文件,新增小米IPQ807X全系列最新内核5.15，删除冲突及多余的插件.
+          全能版每天都会拉取最新源码更新.
           默认IP： 10.0.0.1 默认密码： password
-          2022-3-8更新配置文件,新增robimarko小米IPQ807X全系列最新内核5.15，删除冲突及多余的插件.
-          就算不精简插件云编译差不多才2小时左右完成所有的.
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/robimarko/openwrt)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*

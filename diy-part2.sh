@@ -86,6 +86,7 @@ git clone https://github.com/kiddin9/luci-app-dnsfilter.git package/luci-app-dns
 git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
 git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
 #================================================================================================
+git clone https://github.com/xiaoqingfengATGH/feeds-xiaoqingfeng.git
 #移除不用软件包    
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-wrtbwmon
@@ -93,7 +94,7 @@ rm -rf feeds/packages/net/smartdns
 
 #添加额外软件包
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-
+git clone https://github.com/immortalwrt/packages.git
 #replace mirrors
 #rm -rf ./include
 #rm -rf ./ scripts

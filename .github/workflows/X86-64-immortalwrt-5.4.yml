@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: X86_64_immortalwrt
+name: X86-64-immortalwrt-5.4
 
 on:
   repository_dispatch:
@@ -32,8 +32,10 @@ on:
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-18.06-k5.4
+  #REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: x86_64/x86_64_immortalwrt.config
+  CONFIG_FILE: x86_64/x86_64.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
@@ -42,8 +44,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: X86_64_immortalwrt
-  PRODUCT_NAME: X86_64_immortalwrt
+  FILE_NAME: X86-64
+  PRODUCT_NAME: X86-64
 
 jobs:
   build:

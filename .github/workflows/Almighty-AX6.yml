@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: Almighty_AX6
+name: Almighty-AX6
 
 on:
   repository_dispatch:
@@ -45,8 +45,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: Almighty_AX6
-  PRODUCT_NAME: Almighty_AX6
+  FILE_NAME: Almighty-AX6
+  PRODUCT_NAME: Almighty-AX6
 
 jobs:
   build:

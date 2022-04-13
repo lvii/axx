@@ -45,8 +45,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: 5.15_AX6
-  PRODUCT_NAME: 5.15_AX6
+  FILE_NAME: 5.15-AX6
+  PRODUCT_NAME: 5.15-AX6
 
 jobs:
   build:

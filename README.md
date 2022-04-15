@@ -171,3 +171,4 @@ rm -f .config.old && make defconfig && ./scripts/diffconfig.sh > seed.config && 
 源代码中绝不含任何后门和可以监控或者劫持你的 HTTPS 的闭源软件， SSL 安全是互联网最后的壁垒。安全干净才是固件应该做到的；
 
 [MIT](https://github.com/MuaCat/Actions-OpenWrt/blob/master/LICENSE) © P3TERX
+

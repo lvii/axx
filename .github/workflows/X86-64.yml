@@ -35,7 +35,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: x86_64/x86_64.config
+  CONFIG_FILE: x86_64/lean-x86_64-docker
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
@@ -212,7 +212,7 @@ jobs:
           3、需要单独IPK请到分支下载
           默认IP： 10.0.0.1 默认密码： password
           #新增天灵源码immortalwrt-5.4内核docker版本，不带docker是精简版，相比lean的源码更稳定，更丝滑！更急速！
-          #docker版分区1024。精简版分区300，diy2是添加lede软件库没有的插件。及一些原作者的插件。
+          docker版分区1024。精简版分区300，diy2是添加lede软件库没有的插件。及一些原作者的插件。
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/immortalwrt/immortalwrt)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*

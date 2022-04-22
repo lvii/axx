@@ -4,7 +4,7 @@
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
 #
-# https://github.com/joyblablabla/Actions-OpenWrt
+# https://github.com/Joecaicai/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
@@ -118,15 +118,14 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a -f
+      
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_P2_SH
-#        chmod +x $MRG_ADD_SH        
+        chmod +x $DIY_P2_SH       
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-#        $GITHUB_WORKSPACE/$MRG_ADD_SH
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0

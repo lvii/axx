@@ -30,10 +30,7 @@ on:
   #  每周五凌晨四点自动编译。
 
 env:
-  #REPO_URL: https://github.com/robimarko/openwrt
-  #REPO_BRANCH: ipq807x-5.15
   REPO_URL: https://github.com/Boos4721/openwrt
-  #REPO_URL: https://github.com/coolsnowwolf/lede 
   REPO_BRANCH: master  
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/AX6.config
@@ -59,6 +56,24 @@ jobs:
       
     - name: Checkout
       uses: actions/checkout@master
+
+    - name: Check server performance
+      run: |
+        echo "警告⚠"
+        echo "若分配的服务器性能不足，务必及时取消，重新运行！"
+        echo "已知编译成功CPU型号：8370C,8171M"
+        echo "已知性能不足CPU型号：8272CL"
+        echo -e "-------------- ------------CPU信息------------------------------------------\n"
+        echo "CPU物理数量:$(cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l)"
+        echo -e "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
+        echo "-------------------------------内存信息-------------------------------------------"
+        echo "已安装内存详细信息："
+        sudo lshw -short -C memory | grep GiB
+        echo -e "\n"
+        echo "-----------------------------硬盘信息---------------------------------------------"
+        echo -e  "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l) \n"
+        echo "硬盘详情："
+        df -Th
 
     - name: Initialization environment
       env:
@@ -92,7 +107,12 @@ jobs:
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P1_SH
+        $GITHUB_WORKSPACE/$DIY_P1_SH      
+    #    ../$DIY_P1_SH
+
+    # - name: Revert some drop sh*t
+    #   run: cp -rf $GITHUB_WORKSPACE/AX6/revert/* openwrt/
+        
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -104,9 +124,12 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
+     #  chmod +x $MRG_ADD_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        
+     #   $GITHUB_WORKSPACE/$MRG_ADD_SH
+     #   sed -i 's/OpenWrt/MRG AutoBuild ${{ env.DATE1 }} @ OpenWrt/g' package/lean/default-settings/files/zzz-default-settings
+                
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
@@ -137,6 +160,24 @@ jobs:
     - name: Check space usage
       if: (!cancelled())
       run: df -hT
+      
+    - name: Check performance again
+      run: |
+        echo "警告⚠"
+        echo "若分配的服务器性能不足，务必及时取消，重新运行！"
+        echo "已知编译成功CPU型号：8370C,8171M"
+        echo "已知性能不足CPU型号：8272CL"
+        echo -e "-------------- ------------CPU信息------------------------------------------\n"
+        echo "CPU物理数量:$(cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l)"
+        echo -e "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
+        echo "-------------------------------内存信息-------------------------------------------"
+        echo "已安装内存详细信息："
+        sudo lshw -short -C memory | grep GiB
+        echo -e "\n"
+        echo "-----------------------------硬盘信息---------------------------------------------"
+        echo -e  "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l) \n"
+        echo "硬盘详情："
+        df -Th
       
     - name: Upload bin directory
       uses: actions/upload-artifact@master

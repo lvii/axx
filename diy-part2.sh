@@ -16,6 +16,7 @@
 # Modify default IP
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 sed -i 's/10.10.10.1/10.0.0.1/g' package/base-files/files/bin/config_generate
+
 #Boos4721源编译的固件特别说明： 管理地址：10.10.10.1 登陆密码：boos 无线密码：1234567890
 
 # Modify hostname
@@ -23,8 +24,8 @@ sed -i 's/10.10.10.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # Delete default password
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
-# Delete default password:boos
-#sed -i '/HBAtVXABp7XbvVjG4193B/d' package/lean/default-settings/files/zzz-default-settings
+# Delete default password:默认密码boos改为password
+sed -i "s|^root|root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::|g" package/base-files/files/etc/shadow
 
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 sed -i 's/OpenWrt /AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g' package/lean/default-settings/files/zzz-default-settings

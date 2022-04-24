@@ -22,10 +22,16 @@ sed -i 's/10.10.10.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 # Modify hostname
 #sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate 
 
-# Delete default password
+# Delete default password:删除默认密码password
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
-# Delete default password:默认密码boos改为password
-sed -i "s|^root|root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::|g" package/base-files/files/etc/shadow
+#================================================================================================
+# Delete default password:删除默认密码boos
+#sed -i "s|^root|root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::|g" package/base-files/files/etc/shadow
+#sed -i "s|^root|root:$1$V4UetPzk$HBAtVXABp7XbvVjG4193B.:18753:0:99999:7:::|g" package/base-files/files/etc/shadow
+#root:$1$WplwC1t5$HBAtVXABp7XbvVjG4193B.:18753:0:99999:7:::
+
+sed -i '/HBAtVXABp7XbvVjG4193B/d' package/base-files/files/etc/shadow
+#================================================================================================
 
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 sed -i 's/OpenWrt /AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g' package/lean/default-settings/files/zzz-default-settings

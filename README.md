@@ -27,8 +27,7 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
  [![Lienol](https://img.shields.io/badge/Package-Lienol-blueviolet.svg?style=flat&logo=appveyor)](https://github.com/Lienol/openwrt-package)  [![CTCGFW](https://img.shields.io/badge/OpenWrt-CTCGFW-orange.svg?style=flat&logo=appveyor)](https://github.com/project-openwrt/openwrt) [![joyblablabla](https://img.shields.io/badge/Mod-Joecaicai-success.svg?style=flat&logo=appveyor)](https://github.com/Joecaicai/Actions-OpenWrt/actions)
 - 每日两次自动拉取更新所有上游源码至上方软件仓库，所以此软件仓库永远都是最新的。
 - 云编译脚本会调用此仓库软件编译OpenWrt固件，每日一次编译。
-- 源编译的固件特别说明： 管理地址默认IP：10.0.0.1 
-- 登陆密码：默认无密码或者password或者boos 无线密码：gds.2021或者1234567890
+- 源编译的固件特别说明： 管理地址默认IP：10.0.0.1 登陆密码：默认password 
 -------------
 支持的设备平台以及固件下载地址 [![](https://img.shields.io/badge/-设备及固件列表下载-green.svg)](#设备及固件列表下载-)
 -------------
@@ -53,7 +52,7 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 -------------
 手动编译
 ======================
-1. 首先装好 Ubuntu 64bit，推荐  Ubuntu  18 LTS x64  
+1. 首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS  
 2. 命令行输入
 
 ```bash
@@ -69,7 +68,14 @@ sudo apt-get update
 
 以下的命令适用Ubuntu 20
 -------------
->sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+>sudo apt update -y
+sudo apt full-upgrade -y
+sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
+bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \
+git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \
+libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \
+mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip qemu-utils \
+rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
 
 3. 使用 `git clone https://github.com/coolsnowwolf/lede` 命令下载好源代码，然后 `cd lede` 进入目录
 

@@ -30,7 +30,7 @@ sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-defaul
 #sed -i "s|^root|root:$1$V4UetPzk$HBAtVXABp7XbvVjG4193B.:18753:0:99999:7:::|g" package/base-files/files/etc/shadow
 #root:$1$WplwC1t5$HBAtVXABp7XbvVjG4193B.:18753:0:99999:7:::
 
-sed -i '/HBAtVXABp7XbvVjG4193B/d' package/base-files/files/etc/shadow
+#sed -i '/HBAtVXABp7XbvVjG4193B/d' package/base-files/files/etc/shadow
 #================================================================================================
 
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）

@@ -22,15 +22,16 @@ sed -i 's/10.10.10.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 # Modify hostname
 #sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate 
 
-# Delete default password:删除默认密码password
+# Delete default password:password
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
 #================================================================================================
-# Delete default password:删除默认密码boos
+# Delete default password:boos
 #sed -i "s|^root|root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::|g" package/base-files/files/etc/shadow
-#sed -i "s|^root|root:$1$V4UetPzk$HBAtVXABp7XbvVjG4193B.:18753:0:99999:7:::|g" package/base-files/files/etc/shadow
+#https://github.com/HoldOnBro/Actions-OpenWrt/blob/master/AX6/AX6.sh
+#------------------------------------------------------------------------------------------------
 #root:$1$WplwC1t5$HBAtVXABp7XbvVjG4193B.:18753:0:99999:7:::
-
-#sed -i '/HBAtVXABp7XbvVjG4193B/d' package/base-files/files/etc/shadow
+#boos
+sed -i '/HBAtVXABp7XbvVjG4193B/d' package/base-files/files/etc/shadow
 #================================================================================================
 
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）

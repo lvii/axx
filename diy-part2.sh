@@ -24,6 +24,7 @@ sed -i 's/10.10.10.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # Delete default password:password
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
+#sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 #================================================================================================
 # Delete default password:boos
 #sed -i "s|^root|root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::|g" package/base-files/files/etc/shadow
@@ -37,12 +38,18 @@ sed -i '/HBAtVXABp7XbvVjG4193B/d' package/base-files/files/etc/shadow
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 sed -i 's/OpenWrt /AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g' package/lean/default-settings/files/zzz-default-settings
 
-# 修改主机名字，把Xiaomi-R4A修改你喜欢的就行（不能纯数字或者使用中文）
+# 修改主机名字，把Xiaomi-AX6修改你喜欢的就行（不能纯数字或者使用中文）
 #sed -i '/uci commit system/i\uci set system.@system[0].hostname='Xiaomi-R4A'' package/lean/default-settings/files/zzz-default-settings
+
+#取消原主题luci-theme-bootstrap为默认主题
+sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
 # 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 # themes添加（svn co 命令意思：指定版本如https://github）
+
+#更改主机型号，支持中文。 
+#sed -i 's/model = "Redmi AX6"/model = "红米AX6路由"/g' target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
 
 # 修改连接数
 #sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=165535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
@@ -54,10 +61,13 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 #开启MU-MIMO
 #sed -i 's/mu_beamformer=0/mu_beamformer=1/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+
 #wifi加密方式，没有是none
 #sed -i 's/encryption=none/encryption=psk2/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-#wifi密码
+#wifi密码key为gds.2021
 #sed -i 's/key=password/key=gds.2021/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#使用sed 在第四行后添加新字
+#sed -i '/set wireless.default_radio${devidx}.encryption=psk-mixed/a\set wireless.default_radio${devidx}.key=gds.2021' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 # 修复核心及添加温度显示
 #sed -i 's|pcdata(boardinfo.system or "?")|luci.sys.exec("uname -m") or "?"|g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm

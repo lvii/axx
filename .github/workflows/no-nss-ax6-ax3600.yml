@@ -31,8 +31,8 @@ on:
   #  每周五凌晨四点自动编译。
 
 env:
-  REPO_URL: https://github.com/robimarko/openwrt
-  REPO_BRANCH: ipq807x-5.15 
+  REPO_URL: https://github.com/admin6750217/lede
+  REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/no-nss-ax6-ax3600.config
   DIY_P1_SH: diy-part1.sh

@@ -48,6 +48,7 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 | 8 |  [![](https://img.shields.io/badge/OpenWrt-Almighty--AX9000-green.svg)](https://github.com/Joecaicai/Actions-OpenWrt/actions/workflows/Almighty-AX9000.yml)| [![Almighty-AX9000](https://github.com/Joecaicai/Actions-OpenWrt/actions/workflows/Almighty-AX9000.yml/badge.svg)](https://github.com/Joecaicai/Actions-OpenWrt/actions/workflows/Almighty-AX9000.yml)|
 | 9 |  [![](https://img.shields.io/badge/OpenWrt-HiWiFi--HC5962-green.svg)](https://github.com/Joecaicai/Actions-OpenWrt/actions/workflows/HIWIFI-HC5962.yml)| [![HIWIFI-HC5962](https://github.com/Joecaicai/AutoBuild-OpenWrt/actions/workflows/HIWIFI-HC5962.yml/badge.svg)](https://github.com/Joecaicai/AutoBuild-OpenWrt/actions/workflows/HIWIFI-HC5962.yml)|
 | 10 |  [![](https://img.shields.io/badge/OpenWrt-X86--64-green.svg)](https://github.com/Joecaicai/AutoBuild-OpenWrt/actions/workflows/X86-64.yml)| [![X86-64](https://github.com/Joecaicai/AutoBuild-OpenWrt/actions/workflows/X86-64.yml/badge.svg)](https://github.com/Joecaicai/AutoBuild-OpenWrt/actions/workflows/X86-64_.yml)|
+| 11 |  [![](https://img.shields.io/badge/OpenWrt-no-nss-ax6-ax3600-green.svg)](https://github.com/Joecaicai/AutoBuild-OpenWrt/actions/workflows/no-nss-ax6-ax3600.yml)| [![no-nss-ax6-ax3600](https://github.com/Joecaicai/Actions-OpenWrt/actions/workflows/no-nss-ax6-ax3600.yml/badge.svg)](https://github.com/Joecaicai/Actions-OpenWrt/actions/workflows/no-nss-ax6-ax3600.yml)|
 
 关于自动编译固件的说明 [![](https://img.shields.io/badge/-自动编译说明-green.svg)](#自动编译说明-)
 -------------

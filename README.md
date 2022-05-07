@@ -62,7 +62,6 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 -------------
 手动编译
 ======================
-## 
 1. 首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS  
 2. 命令行输入
 

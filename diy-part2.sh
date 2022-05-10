@@ -113,6 +113,7 @@ rm -rf feeds/packages/net/smartdns
 #添加额外软件包
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone https://github.com/immortalwrt/packages.git
+#git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 
 #replace mirrors
 #rm -rf ./include

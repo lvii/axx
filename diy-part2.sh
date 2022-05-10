@@ -80,8 +80,9 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #    sed -i 's@\(CONFIG_KERNEL_BUILD_DOMAIN=\).*@\1$"GitHub Actions"@' .config
 #================================================================================================
 git clone https://github.com/Boos4721/OpenWrt-Packages.git package/Boos4721-packages
-git clone https://github.com/kenzok8/openwrt-packages.git package/kenzok8-packages
+git clone https://github.com/kiddin9/openwrt-packages.git package/kiddin9-packages
 
+git clone https://github.com/kenzok8/openwrt-packages.git package/kenzok8-packages
 git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/luci-theme-atmaterial

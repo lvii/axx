@@ -14,13 +14,13 @@
 #================================================================================================
 
 # Modify default IP
-sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # Modify hostname
 #sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate 
 
 # Delete default password:password
-sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
+#sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
 #================================================================================================
 
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
@@ -90,19 +90,17 @@ sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless
 #echo "exit 0" >> package/lean/default-settings/files/zzz-default-settings
 
 #删除原默认主题
-rm -rf package/lean/luci-theme-argon
 rm -rf package/lean/luci-theme-bootstrap
 rm -rf package/lean/luci-theme-material
 rm -rf package/lean/luci-theme-netgear
 rm -rf package/kenzo/luci-theme-ifit
 
-#git clone https://github.com/Joecaicai/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
-git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
-git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
-
 # themes
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
+#git clone https://github.com/Joecaicai/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
+git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
+git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
 
 #添加argon-config 使用 最新argon
 rm -rf package/lean/luci-theme-argon
@@ -194,9 +192,9 @@ git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
 git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
 #================================================================================================
 #移除不用软件包    
-rm -rf feeds/luci/applications/luci-app-dockerman
-rm -rf feeds/luci/applications/luci-app-wrtbwmon
-rm -rf feeds/packages/net/smartdns
+#rm -rf feeds/luci/applications/luci-app-dockerman
+#rm -rf feeds/luci/applications/luci-app-wrtbwmon
+#rm -rf feeds/packages/net/smartdns
 
 #添加额外软件包
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter

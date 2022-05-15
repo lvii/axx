@@ -20,7 +20,7 @@
 #sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate 
 
 # Delete default password:password
-sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
+#sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
 #================================================================================================
 
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）

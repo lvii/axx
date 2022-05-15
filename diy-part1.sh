@@ -1,6 +1,6 @@
 #!/bin/bash
 #====================================================================
-# Copyright (c) 2019-2021 iplcdn <https://iplcdn.com>
+# Copyright (c) 2019-2021 iplcdn <https://NOMCAI.ML>
 #
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
@@ -14,9 +14,9 @@
 # fw876/helloworld (Uncomment a feed source)
 
 #sed -i "/helloworld/d" "feeds.conf.default"
-echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
-echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
-echo 'src-git xiaoqingfeng https://github.com/xiaoqingfengATGH/feeds-xiaoqingfeng' >>feeds.conf.default
+#echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
+#echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+#echo 'src-git xiaoqingfeng https://github.com/xiaoqingfengATGH/feeds-xiaoqingfeng' >>feeds.conf.default
 
 #echo ' src-git OpenClash https://github.com/vernesong/OpenClash'  feeds.conf.default
 #sed -i '$a src-git OpenAppFilter https://github.com/destan19/OpenAppFilter'  feeds.conf.default
@@ -25,4 +25,9 @@ echo 'src-git xiaoqingfeng https://github.com/xiaoqingfengATGH/feeds-xiaoqingfen
 #rm -rf package/lean/luci-theme-argon
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 
+#====================================================================
+# 添加插件源码
+sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+# passwall依赖
+sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 #====================================================================

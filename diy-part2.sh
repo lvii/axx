@@ -104,13 +104,11 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-
 git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
 git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
 
-#-----------------------------------------------------------------------------------------
 #添加argon-config 使用 最新argon
-#rm -rf package/lean/luci-theme-argon
-#rm -rf feeds/luci/themes/luci-theme-argon
-#git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-#-----------------------------------------------------------------------------------------
+git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+rm -rf feeds/luci/themes/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+
 #取消原主题luci-theme-bootstrap为默认主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
@@ -122,6 +120,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 #登录页面背景颜色+半透明
 sed -i 's/#f7fafc/rgba(134,176,197, .5)/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 
+#-----------------------------------------------------------------------------------------
 #渐变色开始
 #sed -i 's/#f9ffff/#80ABC3/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #渐变色结束b8 57
@@ -264,11 +263,6 @@ svn co https://github.com/linkease/ddnsto-openwrt/trunk/luci-app-ddnsto package/
 
 #添加luci-app-advanced
 git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
-
-#添加argon-config 使用 最新argon
-#git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-#rm -rf feeds/luci/themes/luci-theme-argon
-#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 
 #修改makefile
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}

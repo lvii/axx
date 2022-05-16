@@ -17,18 +17,18 @@
 #main_bg_5k为2500*2109
 #favicon为128*128
 #------------------------------------------------------------------------------------------------------------------------
-mv diy/bg/favicon.ico openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/favicon.ico
-mv diy/bg/logo.png openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/logo.png
-mv diy/bg-argon/bg1.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg1.jpg
-mv diy/bg/bg2.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg2.jpg
-mv diy/bg/bg3.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg3.jpg
+mv diy/bg/favicon.ico openwrt/package/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/favicon.ico
+mv diy/bg/logo.png oopenwrt/package/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/logo.png
+mv diy/bg-argon/bg1.jpg openwrt/package/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg1.jpg
+mv diy/bg/bg2.jpg openwrt/package/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg2.jpg
+mv diy/bg/bg3.jpg openwrt/package/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg3.jpg
 #------------------------------------------------------------------------------------------------------------------------
-mv diy/bg-argon/bg1.jpg openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+mv diy/bg-argon/bg1.jpg openwrt/package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 #------------------------------------------------------------------------------------------------------------------------
-mv diy/favicon.ico openwrt/package/lean/luci-theme-ifit/files/htdocs/favicon.ico
-mv diy/logo.png openwrt/package/lean/luci-theme-ifit/files/htdocs/logo.png       
-mv diy/bg/main_bg.jpg openwrt/package/lean/luci-theme-ifit/files/htdocs/images/main_bg.jpg
-mv diy/bg-argon/main_bg_5k.jpg openwrt/package/lean/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg
+mv diy/favicon.ico openwrt/package/luci-theme-ifit/files/htdocs/favicon.ico
+mv diy/logo.png openwrt/package/luci-theme-ifit/files/htdocs/logo.png       
+mv diy/bg/main_bg.jpg openwrt/package/luci-theme-ifit/files/htdocs/images/main_bg.jpg
+mv diy/bg-argon/main_bg_5k.jpg openwrt/package/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg
 mv diy/banner openwrt/package/base-files/files/etc/banner
 #------------------------------------------------------------------------------------------------------------------------
 #openwrt/package/lean/luci-theme-ifit

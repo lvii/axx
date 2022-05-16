@@ -101,8 +101,8 @@ git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-th
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 
 #下载主题luci-theme-argon
-git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
-git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
+git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/luci-theme-argon_armygreen
+git clone https://github.com/YL2209/luci-theme-ifit.git package/luci-theme-ifit
 
 #添加argon-config 使用 最新argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config

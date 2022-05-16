@@ -93,14 +93,14 @@ sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless
 rm -rf package/lean/luci-theme-bootstrap
 rm -rf package/lean/luci-theme-material
 rm -rf package/lean/luci-theme-netgear
-rm -rf package/kenzo/luci-theme-ifit
+#rm -rf package/kenzo/luci-theme-ifit
 
 # themes
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #git clone https://github.com/Joecaicai/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
 git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
-git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
+#git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
 
 #添加argon-config 使用 最新argon
 rm -rf package/lean/luci-theme-argon

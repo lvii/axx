@@ -93,21 +93,25 @@ sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless
 rm -rf package/lean/luci-theme-bootstrap
 rm -rf package/lean/luci-theme-material
 rm -rf package/lean/luci-theme-netgear
-#rm -rf package/kenzo/luci-theme-ifit
 
 # themes
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #git clone https://github.com/Joecaicai/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
 git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
+
+#rm -rf package/kenzo/luci-theme-ifit
 #git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
-
+#-----------------------------------------------------------------------------------------
+#
+#采用openwrt/package/kenzo/luci-theme-argon和openwrt/package/kenzo/luci-app-argon-config
+#
 #添加argon-config 使用 最新argon
-rm -rf package/lean/luci-theme-argon
-rm -rf feeds/luci/themes/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-
+#rm -rf package/lean/luci-theme-argon
+#rm -rf feeds/luci/themes/luci-theme-argon
+#git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+#-----------------------------------------------------------------------------------------
 #取消原主题luci-theme-bootstrap为默认主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 

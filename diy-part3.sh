@@ -31,4 +31,4 @@ mv diy/bg/main_bg.jpg openwrt/feeds/luci-theme-ifit/files/htdocs/images/main_bg.
 mv diy/bg-argon/main_bg_5k.jpg openwrt/feeds/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg
 mv diy/banner openwrt/package/base-files/files/etc/banner
 #------------------------------------------------------------------------------------------------------------------------
-#openwrt/package/lean/luci-theme-ifit
+#o

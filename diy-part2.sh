@@ -99,8 +99,6 @@ rm -rf package/kenzo/luci-theme-ifit
 # themes
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-
-#下载主题luci-theme-argon
 git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/luci-theme-argon_armygreen
 git clone https://github.com/YL2209/luci-theme-ifit.git package/luci-theme-ifit
 

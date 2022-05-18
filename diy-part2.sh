@@ -94,8 +94,8 @@ rm -rf package/lean/luci-theme-argon
 rm -rf package/lean/luci-theme-bootstrap
 rm -rf package/lean/luci-theme-material
 rm -rf package/lean/luci-theme-netgear
-rm -rf package/kenzo/luci-theme-ifit
-
+#rm -rf package/kenzo/luci-theme-ifit
+rm -rf package/feeds/kenzo/luci-theme-ifit
 # themes
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus

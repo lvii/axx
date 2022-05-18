@@ -23,8 +23,8 @@ mv diy/bg-argon/bg1.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/l
 mv diy/bg/bg2.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg2.jpg
 mv diy/bg/bg3.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg3.jpg
 #------------------------------------------------------------------------------------------------------------------------
-mv diy/bg-argon/bg1.jpg openwrt/feeds/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-mv diy/bg-argon/bg1.jpg openwrt//home/test/lede/package/feeds/kenzo/luci-theme-argonne/htdocs/luci-static/argonne/img
+mv diy/bg-argon/bg1.jpg openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+mv diy/bg-argon/bg1.jpg openwrt/package/feeds/kenzo/luci-theme-argonne/htdocs/luci-static/argonne/img
 #------------------------------------------------------------------------------------------------------------------------
 mv diy/favicon.ico openwrt/package/lean/luci-theme-ifit/files/htdocs/favicon.ico
 mv diy/logo.png openwrt/package/lean/luci-theme-ifit/files/htdocs/logo.png      

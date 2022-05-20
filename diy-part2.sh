@@ -21,8 +21,7 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # Delete default password:password
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
-#================================================================================================
-
+#-------------------------------------------------------------------------------------------------------------------------------
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 sed -i 's/OpenWrt /AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g' package/lean/default-settings/files/zzz-default-settings
 
@@ -49,7 +48,7 @@ sed -i 's/encryption=none/encryption=sae-mixed/g' package/kernel/mac80211/files/
 sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless.default_radio${devidx}.key=gds.2021' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #wifi密码key为gds.2021
 #sed -i 's/key=password/key=gds.2021/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-
+#-------------------------------------------------------------------------------------------------------------------------------
 # 修复核心及添加温度显示
 #sed -i 's|pcdata(boardinfo.system or "?")|luci.sys.exec("uname -m") or "?"|g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 #sed -i 's/or "1"%>/or "1"%> ( <%=luci.sys.exec("expr `cat \/sys\/class\/thermal\/thermal_zone0\/temp` \/ 1000") or "?"%> \&#8451; ) /g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
@@ -63,7 +62,7 @@ sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless
 #[ -z $(grep "CONFIG_KERNEL_BUILD_DOMAIN=" .config) ] &&
 #    echo 'CONFIG_KERNEL_BUILD_DOMAIN="GitHub Actions"' >>.config ||
 #    sed -i 's@\(CONFIG_KERNEL_BUILD_DOMAIN=\).*@\1$"GitHub Actions"@' .config
-#================================================================================================
+#-------------------------------------------------------------------------------------------------------------------------------
 # 状态系统增加个性信息
 #sed -i "s/exit 0//" package/lean/default-settings/files/zzz-default-settings
 
@@ -89,23 +88,100 @@ sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless
 #echo "" >> package/lean/default-settings/files/zzz-default-settings
 #echo "exit 0" >> package/lean/default-settings/files/zzz-default-settings
 
+#-------------------------------------------------------------------------------------------------------------------------------
+#git clone https://github.com/kiddin9/openwrt-packages.git package/kiddin9-packages
+#git clone https://github.com/Boos4721/OpenWrt-Packages.git package/Boos4721-packages
+#-------------------------------------------------------------------------------------------------------------------------------
+#移除不用软件包    
+#rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/luci/applications/luci-app-wrtbwmon
+
+#添加额外软件包
+git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+
+#replace mirrors
+#rm -rf ./include
+#rm -rf ./ scripts
+#svn co https://github.com/immortalwrt/immortalwrt/trunk/include
+#svn co https://github.com/immortalwrt/immortalwrt/trunk/scripts
+
+#git clone https://github.com/vernesong/OpenClash.git package/OpenClash
+#cp -r package/OpenClash/luci-app-openclash package/
+#rm -rf package/OpenClash
+svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+# 编译 po2lmo (如果有po2lmo可跳过)
+pushd package/luci-app-openclash/tools/po2lmo
+make && sudo make install
+popd
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/chinadns-ng
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping package/tcping
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go package/trojan-go
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/trojan-plus
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-socat package/luci-app-socat
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-passwall package/luci-app-passwall
+svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/ssocks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
+svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
+svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
+svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
+svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
+svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
+svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/simple-obfs
+svn co https://github.com/fw876/helloworld/trunk/trojan package/trojan
+svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/v2ray-core
+svn co https://github.com/fw876/helloworld/trunk/v2ray-geodata package/v2ray-geodata
+svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
+git clone https://github.com/brvphoenix/luci-app-wrtbwmon
+cd luci-app-wrtbwmon
+git reset --hard ff7773abbf71120fc39a276393b29ba47353a7e2
+cp -r luci-app-wrtbwmon ../package/
+cd ..
+
+svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
+svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+
+sed -i 's/luci-lib-ipkg/luci-base/g' package/kenzok8-packages/luci-app-store/Makefile
+svn co https://github.com/linkease/ddnsto-openwrt/trunk/ddnsto package/ddnsto
+svn co https://github.com/linkease/ddnsto-openwrt/trunk/luci-app-ddnsto package/luci-app-ddnsto
+
+#修改makefile
+find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
+find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/lang\/golang\/golang\-package\.mk/include \$(TOPDIR)\/feeds\/packages\/lang\/golang\/golang\-package\.mk/g' {}
+find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHREPO/PKG_SOURCE_URL:=https:\/\/github\.com/g' {}
+find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload\.github\.com/g' {}
+#svn co https://github.com/immortalwrt/immortalwrt/trunk/include/download.mk include/download.mk
+#svn co https://github.com/immortalwrt/immortalwrt/trunk/include/package-immortalwrt.mk include/package-immortalwrt.mk
+
+#replace coremark.sh with the new one
+cp -f $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
+
+find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-vssr/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-alt/shadowsocksr-libev-ssr-redir/g' {}
+find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-vssr/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-server/shadowsocksr-libev-ssr-server/g' {}
+
+svn co https://github.com/kiddin9/openwrt-bypass/trunk/luci-app-bypass package/luci-app-bypass
+#find package/luci-app-bypass/* -maxdepth 8 -path "*" | xargs -i sed -i 's/smartdns-le/smartdns/g' {}
+
+#-------------------------------------------------------------------------------------------------------------------------------
 #删除原默认主题
 rm -rf package/lean/luci-theme-argon
 rm -rf package/lean/luci-theme-bootstrap
 rm -rf package/lean/luci-theme-material
 rm -rf package/lean/luci-theme-netgear
-rm -rf package/kenzok8-packages/luci-theme-argon
-rm -rf package/kenzok8-packages/luci-theme-ifit
+#rm -rf package/kenzok8-packages/luci-theme-argon
+#rm -rf package/kenzok8-packages/luci-theme-ifit
+
 # themes
 #git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
-git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
+#git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
 
-#添加argon-config 使用 最新argon
+#添加argon-config 使用最新argon(默认使用kenzok8的)
 #git clone https://github.com/jerrykuku/luci-app-argon-config package/lean/luci-app-argon-config
-rm -rf feeds/luci/themes/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
+#rm -rf feeds/luci/themes/luci-theme-argon
+#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 
 #取消原主题luci-theme-bootstrap为默认主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
@@ -118,7 +194,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 #登录页面背景颜色+半透明
 sed -i 's/#f7fafc/rgba(134,176,197, .5)/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 
-#-----------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------------------
 #渐变色开始
 #sed -i 's/#f9ffff/#80ABC3/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #渐变色结束b8 57
@@ -126,7 +202,7 @@ sed -i 's/#f7fafc/rgba(134,176,197, .5)/g' package/lean/luci-theme-argon_armygre
 #sed -i 's/#9effff57/#9FC4D5/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #主机名  ，导航栏-状态-文字的颜色
 #sed -i 's/#4fc352/#B7E0F3/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
-#-------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------------------
 #应用+保存
 #sed -i 's/#46b8da/#407994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #未选中
@@ -173,112 +249,10 @@ sed -i 's/❤/☯/g' package/lean/luci-theme-argon_armygreen/luasrc/view/themes/
 #已选中
 #sed -i 's/#4F2EDC/#E0DAD6/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #sed -i 's/#00FF00/#407994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
-#-------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------------------
 #加载背景
 sed -i 's/#5e72e4/#407994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
-#================================================================================================
-
-#git clone https://github.com/kiddin9/openwrt-packages.git package/kiddin9-packages
-#git clone https://github.com/Boos4721/OpenWrt-Packages.git package/Boos4721-packages
-
-git clone https://github.com/kenzok8/openwrt-packages.git package/kenzok8-packages
-#git clone https://github.com/vernesong/OpenClash.git package/OpenClash
-#svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
-
-git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
-
-#添加smartdns
-git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
-git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
-#================================================================================================
-#移除不用软件包    
-#rm -rf feeds/luci/applications/luci-app-dockerman
-#rm -rf feeds/luci/applications/luci-app-wrtbwmon
-#rm -rf feeds/packages/net/smartdns
-
-#添加额外软件包
-git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-
-#replace mirrors
-#rm -rf ./include
-#rm -rf ./ scripts
-#svn co https://github.com/immortalwrt/immortalwrt/trunk/include
-#svn co https://github.com/immortalwrt/immortalwrt/trunk/scripts
-
-#git clone https://github.com/vernesong/OpenClash.git package/OpenClash
-#cp -r package/OpenClash/luci-app-openclash package/
-#rm -rf package/OpenClash
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
-# 编译 po2lmo (如果有po2lmo可跳过)
-pushd package/luci-app-openclash/tools/po2lmo
-make && sudo make install
-popd
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/chinadns-ng
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping package/tcping
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go package/trojan-go
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/trojan-plus
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-socat package/luci-app-socat
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-passwall package/luci-app-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/ssocks
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
-svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
-svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
-svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
-svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
-svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
-svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/simple-obfs
-svn co https://github.com/fw876/helloworld/trunk/trojan package/trojan
-svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/v2ray-core
-svn co https://github.com/fw876/helloworld/trunk/v2ray-geodata package/v2ray-geodata
-svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
-git clone https://github.com/brvphoenix/luci-app-wrtbwmon
-cd luci-app-wrtbwmon
-git reset --hard ff7773abbf71120fc39a276393b29ba47353a7e2
-cp -r luci-app-wrtbwmon ../package/
-cd ..
-# themes
-
-svn co https://github.com/solidus1983/luci-theme-opentomato/trunk/luci/themes/luci-theme-opentomato package/luci-theme-opentomato
-git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
-
-#添加smartdns
-#svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/smartdns package/smartdns
-svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
-#svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-smartdns package/luci-app-smartdns
-
-sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-store/Makefile
-#git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
-#git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
-svn co https://github.com/linkease/ddnsto-openwrt/trunk/ddnsto package/ddnsto
-svn co https://github.com/linkease/ddnsto-openwrt/trunk/luci-app-ddnsto package/luci-app-ddnsto
-
-
-#添加luci-app-advanced
-git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
-
-#修改makefile
-find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
-find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/lang\/golang\/golang\-package\.mk/include \$(TOPDIR)\/feeds\/packages\/lang\/golang\/golang\-package\.mk/g' {}
-find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHREPO/PKG_SOURCE_URL:=https:\/\/github\.com/g' {}
-find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload\.github\.com/g' {}
-#svn co https://github.com/immortalwrt/immortalwrt/trunk/include/download.mk include/download.mk
-#svn co https://github.com/immortalwrt/immortalwrt/trunk/include/package-immortalwrt.mk include/package-immortalwrt.mk
-
-#replace coremark.sh with the new one
-cp -f $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
-
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-vssr/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-alt/shadowsocksr-libev-ssr-redir/g' {}
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-vssr/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-server/shadowsocksr-libev-ssr-server/g' {}
-
-svn co https://github.com/kiddin9/openwrt-bypass/trunk/luci-app-bypass package/luci-app-bypass
-#find package/luci-app-bypass/* -maxdepth 8 -path "*" | xargs -i sed -i 's/smartdns-le/smartdns/g' {}
-
+#-------------------------------------------------------------------------------------------------------------------------------
 ./scripts/feeds update -a
 ./scripts/feeds install -a
-
-#================================================================================================
+#===============================================================================================================================

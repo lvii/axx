@@ -244,7 +244,6 @@ svn co https://github.com/solidus1983/luci-theme-opentomato/trunk/luci/themes/lu
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-unblockneteasemusic-mini package/luci-app-unblockneteasemusic-mini
 
 #添加smartdns
 #svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/smartdns package/smartdns

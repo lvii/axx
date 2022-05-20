@@ -142,7 +142,7 @@ cd ..
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 
-sed -i 's/luci-lib-ipkg/luci-base/g' package/kenzok8-packages/luci-app-store/Makefile
+sed -i 's/luci-lib-ipkg/luci-base/g' feeds/kenzok8/luci-app-store/Makefile
 svn co https://github.com/linkease/ddnsto-openwrt/trunk/ddnsto package/ddnsto
 svn co https://github.com/linkease/ddnsto-openwrt/trunk/luci-app-ddnsto package/luci-app-ddnsto
 

@@ -94,16 +94,16 @@ rm -rf package/lean/luci-theme-argon
 rm -rf package/lean/luci-theme-bootstrap
 rm -rf package/lean/luci-theme-material
 rm -rf package/lean/luci-theme-netgear
-#rm -rf package/kenzo/luci-theme-ifit
-rm -rf package/feeds/kenzo/luci-theme-ifit
+rm -rf package/kenzok8-packages/luci-theme-argon
+rm -rf package/kenzok8-packages/luci-theme-ifit
 # themes
-git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
+#git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
 git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
 
 #添加argon-config 使用 最新argon
-git clone https://github.com/jerrykuku/luci-app-argon-config package/lean/luci-app-argon-config
+#git clone https://github.com/jerrykuku/luci-app-argon-config package/lean/luci-app-argon-config
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 

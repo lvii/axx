@@ -95,7 +95,7 @@ rm -rf feeds/luci/applications/luci-app-wrtbwmon
 
 #添加额外软件包
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-git clone https://github.com/kenzok8/openwrt-packages.git package/kenzok8
+#git clone https://github.com/kenzok8/openwrt-packages.git package/kenzok8
 
 #git clone https://github.com/kiddin9/openwrt-packages.git package/kiddin9-packages
 #git clone https://github.com/Boos4721/OpenWrt-Packages.git package/Boos4721-packages
@@ -104,7 +104,7 @@ git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 git clone https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
 
 # passwall依赖
-git clone https://github.com/kenzok8/small package/small 
+#git clone https://github.com/kenzok8/small package/small 
 
 #replace mirrors
 #rm -rf ./include

@@ -18,16 +18,9 @@
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 #echo 'src-git xiaoqingfeng https://github.com/xiaoqingfengATGH/feeds-xiaoqingfeng' >>feeds.conf.default
 
-#echo ' src-git OpenClash https://github.com/vernesong/OpenClash'  feeds.conf.default
-#sed -i '$a src-git OpenAppFilter https://github.com/destan19/OpenAppFilter'  feeds.conf.default
-
-### 修改主题文件
-#rm -rf package/lean/luci-theme-argon
-#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
-
 #====================================================================
 # 添加插件源码
-sed -i '$a src-git kenzok8 https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+#sed -i '$a src-git kenzok8 https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 # passwall依赖
-sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+#sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 #====================================================================

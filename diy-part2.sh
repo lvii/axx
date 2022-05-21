@@ -89,15 +89,22 @@ sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless
 #echo "exit 0" >> package/lean/default-settings/files/zzz-default-settings
 
 #-------------------------------------------------------------------------------------------------------------------------------
-#git clone https://github.com/kiddin9/openwrt-packages.git package/kiddin9-packages
-#git clone https://github.com/Boos4721/OpenWrt-Packages.git package/Boos4721-packages
-#-------------------------------------------------------------------------------------------------------------------------------
 #移除不用软件包    
 #rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-wrtbwmon
 
 #添加额外软件包
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+git clone https://github.com/kenzok8/openwrt-packages.git package/kenzok8
+
+#git clone https://github.com/kiddin9/openwrt-packages.git package/kiddin9-packages
+#git clone https://github.com/Boos4721/OpenWrt-Packages.git package/Boos4721-packages
+
+git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
+git clone https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
+
+# passwall依赖
+git clone https://github.com/kenzok8/small package/small 
 
 #replace mirrors
 #rm -rf ./include
@@ -244,7 +251,7 @@ sed -i 's/#f7fafc/rgba(134,176,197, .5)/g' package/lean/luci-theme-argon_armygre
 #登陆页面右下角技术支持  跳转网站“https://github.com/openwrt/luci”   名称“可爱动漫主题”
 #sed -i 's/可爱动漫主题/可爱动漫主题/g' package/lean/luci-theme-argon_armygreen/luasrc/view/themes/argon_armygreen/footer.htm
 #主机名右上角符号❤
-sed -i 's/❤/☯/g' package/lean/luci-theme-argon_armygreen/luasrc/view/themes/argon_armygreen/header.htm
+#sed -i 's/❤/☯/g' package/lean/luci-theme-argon_armygreen/luasrc/view/themes/argon_armygreen/header.htm
 
 #已选中
 #sed -i 's/#4F2EDC/#E0DAD6/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
@@ -253,6 +260,5 @@ sed -i 's/❤/☯/g' package/lean/luci-theme-argon_armygreen/luasrc/view/themes/
 #加载背景
 sed -i 's/#5e72e4/#407994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #-------------------------------------------------------------------------------------------------------------------------------
-./scripts/feeds update -a
-./scripts/feeds install -a
+./scripts/feeds update -a && ./scripts/feeds install -a
 #===============================================================================================================================

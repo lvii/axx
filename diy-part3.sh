@@ -17,19 +17,19 @@
 #main_bg_5k为2500*2109
 #favicon为128*128
 #------------------------------------------------------------------------------------------------------------------------
-mv diy/bg/favicon.ico openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/favicon.ico
-mv diy/bg/logo.png openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/logo.png
+cp diy/bg/favicon.ico openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/favicon.ico
+cp diy/bg/logo.png openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/logo.png
 cp diy/bg/bg1.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg1.jpg
-mv diy/bg/bg2.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg2.jpg
-mv diy/bg/bg3.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg3.jpg
+cp diy/bg/bg2.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg2.jpg
+cp diy/bg/bg3.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg3.jpg
 #------------------------------------------------------------------------------------------------------------------------
 cp diy/bg/bg1.jpg openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp diy/bg/bg1.jpg openwrt/package/feeds/kenzo/luci-theme-argonne/htdocs/luci-static/argonne/img/bg1.jpg
 #------------------------------------------------------------------------------------------------------------------------
-mv diy/favicon.ico openwrt/package/feeds/kenzo/luci-theme-ifit/files/htdocs/favicon.ico
-mv diy/logo.png openwrt/package/feeds/kenzo/luci-theme-ifit/files/htdocs/logo.png      
-mv diy/bg/main_bg.jpg openwrt/package/feeds/kenzo/luci-theme-ifit/files/htdocs/images/main_bg.jpg
-mv diy/bg/main_bg_5k.jpg openwrt/package/feeds/kenzo/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg
-mv diy/banner openwrt/package/base-files/files/etc/banner
+cp diy/favicon.ico openwrt/package/feeds/kenzo/luci-theme-ifit/files/htdocs/favicon.ico
+cp diy/logo.png openwrt/package/feeds/kenzo/luci-theme-ifit/files/htdocs/logo.png      
+cp diy/bg/main_bg.jpg openwrt/package/feeds/kenzo/luci-theme-ifit/files/htdocs/images/main_bg.jpg
+cp diy/bg/main_bg_5k.jpg openwrt/package/feeds/kenzo/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg
+cp diy/banner openwrt/package/base-files/files/etc/banner
 #------------------------------------------------------------------------------------------------------------------------
 #

@@ -24,12 +24,12 @@ cp diy/bg/bg2.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-st
 cp diy/bg/bg3.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg3.jpg
 #------------------------------------------------------------------------------------------------------------------------
 cp diy/bg/bg1.jpg openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-cp diy/bg/bg1.jpg openwrt/package/feeds/kenzo/luci-theme-argonne/htdocs/luci-static/argonne/img/bg1.jpg
+cp diy/bg/bg1.jpg openwrt/feeds/kenzo/luci-theme-argonne/htdocs/luci-static/argonne/img/bg1.jpg
 #------------------------------------------------------------------------------------------------------------------------
-cp diy/favicon.ico openwrt/package/feeds/kenzo/luci-theme-ifit/files/htdocs/favicon.ico
-cp diy/logo.png openwrt/package/feeds/kenzo/luci-theme-ifit/files/htdocs/logo.png      
-cp diy/bg/main_bg.jpg openwrt/package/feeds/kenzo/luci-theme-ifit/files/htdocs/images/main_bg.jpg
-cp diy/bg/main_bg_5k.jpg openwrt/package/feeds/kenzo/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg
+cp diy/favicon.ico openwrt/feeds/kenzo/luci-theme-ifit/files/htdocs/favicon.ico
+cp diy/logo.png openwrt/feeds/kenzo/luci-theme-ifit/files/htdocs/logo.png      
+cp diy/bg/main_bg.jpg openwrt/feeds/kenzo/luci-theme-ifit/files/htdocs/images/main_bg.jpg
+cp diy/bg/main_bg_5k.jpg openwrt/feeds/kenzo/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg
 cp diy/banner openwrt/package/base-files/files/etc/banner
 #------------------------------------------------------------------------------------------------------------------------
 #

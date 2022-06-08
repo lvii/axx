@@ -188,13 +188,6 @@ sed -i 's/#00FF00/#9900CC/g' package/lean/luci-theme-argon_armygreen/htdocs/luci
 #加载背景
 sed -i 's/#5e72e4/#407994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #-------------------------------------------------------------------------------------------------------------------------------
-git clone https://github.com/brvphoenix/luci-app-wrtbwmon
-cd luci-app-wrtbwmon
-git reset --hard ff7773abbf71120fc39a276393b29ba47353a7e2
-cp -r luci-app-wrtbwmon ../package/
-cd ..
-sed -i 's/luci-lib-ipkg/luci-base/g' package/feeds/kenzo/luci-app-store/Makefile
-
 #修改makefile
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/lang\/golang\/golang\-package\.mk/include \$(TOPDIR)\/feeds\/packages\/lang\/golang\/golang\-package\.mk/g' {}

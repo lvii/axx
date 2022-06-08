@@ -21,8 +21,6 @@
 #====================================================================
 # 添加插件源码
 sed -i '$a src-git-full kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-# nss_packages
-sed -i '$a src-git-full nss_packages https://github.com/robimarko/nss-packages' feeds.conf.default
 # passwall依赖
 sed -i '$a src-git-full small https://github.com/kenzok8/small' feeds.conf.default
 #====================================================================

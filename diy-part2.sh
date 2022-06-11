@@ -105,9 +105,6 @@ rm -rf feeds/luci/applications/luci-app-wrtbwmon
 #git clone https://github.com/robimarko/nss-packages package/nss_packages
 
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-git clone https://github.com/kiddin9/openwrt-packages.git package/kiddin9
-git clone https://github.com/Boos4721/OpenWrt-Packages.git package/Boos4721
-git clone https://github.com/coolsnowwolf/packages.git package/coolsnowwolf
 git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 git clone https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
 

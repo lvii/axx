@@ -17,11 +17,11 @@
 #main_bg_5k为2500*2109
 #favicon为128*128
 #------------------------------------------------------------------------------------------------------------------------
-cp diy/bg/favicon.ico openwrt/package/lean/luci-theme-argon_purple/htdocs/luci-static/argon_armygreen/favicon.ico
-cp diy/bg/logo.png openwrt/package/lean/luci-theme-argon_purple/htdocs/luci-static/argon_armygreen/logo.png
-cp diy/bg/bg1.jpg openwrt/package/lean/luci-theme-argon_purple/htdocs/luci-static/argon_armygreen/img/bg1.jpg
-cp diy/bg/bg2.jpg openwrt/package/lean/luci-theme-argon_purple/htdocs/luci-static/argon_armygreen/img/bg2.jpg
-cp diy/bg/bg3.jpg openwrt/package/lean/luci-theme-argon_purple/htdocs/luci-static/argon_armygreen/img/bg3.jpg
+cp diy/bg/favicon.ico openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/favicon.ico
+cp diy/bg/logo.png openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/logo.png
+cp diy/bg/bg1.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg1.jpg
+cp diy/bg/bg2.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg2.jpg
+cp diy/bg/bg3.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg3.jpg
 #------------------------------------------------------------------------------------------------------------------------
 cp diy/bg/bg1.jpg openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp diy/bg/bg1.jpg openwrt/feeds/kenzo/luci-theme-argonne/htdocs/luci-static/argonne/img/bg1.jpg

@@ -15,7 +15,6 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
-sed -i 's/10.10.10.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # Modify hostname
 #sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate 
@@ -43,26 +42,9 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #开启MU-MIMO
 #sed -i 's/mu_beamformer=0/mu_beamformer=1/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
-#wifi加密方式，没有是none
-sed -i 's/encryption=none/encryption=sae-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-#使用sed 在第四行后添加新字(密码key为gds.2021)
+#wifi加密方式encryption=sae-mixed
+#使用sed 在第四行后添加新字(wifi加密方式，没有是none,wifi密码key为gds.2021)
 sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless.default_radio${devidx}.key=gds.2021' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-#wifi密码key为gds.2021
-sed -i 's/key=password/key=gds.2021/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-#-------------------------------------------------------------------------------------------------------------------------------
-# 修复核心及添加温度显示
-#sed -i 's|pcdata(boardinfo.system or "?")|luci.sys.exec("uname -m") or "?"|g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
-#sed -i 's/or "1"%>/or "1"%> ( <%=luci.sys.exec("expr `cat \/sys\/class\/thermal\/thermal_zone0\/temp` \/ 1000") or "?"%> \&#8451; ) /g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
-
-# Add kernel build user
-#[ -z $(grep "CONFIG_KERNEL_BUILD_USER=" .config) ] &&
-#    echo 'CONFIG_KERNEL_BUILD_USER="OpenWrt"' >>.config ||
-#    sed -i 's@\(CONFIG_KERNEL_BUILD_USER=\).*@\1$"OpenWrt"@' .config
-
-# Add kernel build domain
-#[ -z $(grep "CONFIG_KERNEL_BUILD_DOMAIN=" .config) ] &&
-#    echo 'CONFIG_KERNEL_BUILD_DOMAIN="GitHub Actions"' >>.config ||
-#    sed -i 's@\(CONFIG_KERNEL_BUILD_DOMAIN=\).*@\1$"GitHub Actions"@' .config
 #-------------------------------------------------------------------------------------------------------------------------------
 # 状态系统增加个性信息
 #sed -i "s/exit 0//" package/lean/default-settings/files/zzz-default-settings
@@ -97,8 +79,9 @@ rm -rf package/lean/luci-theme-netgear
 rm -rf feeds/kenzo/luci-theme-argon
 
 #移除不用软件包    
-#rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-wrtbwmon
+rm -rf feeds/packages/net/smartdns
 
 #添加额外软件包
 # nss_packages
@@ -106,6 +89,20 @@ rm -rf feeds/luci/applications/luci-app-wrtbwmon
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 git clone https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
+
+#添加istore
+svn co https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
+svn co https://github.com/linkease/istore/trunk/luci/luci-app-store package/luci-app-store
+sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-store/Makefile
+
+#修改makefile
+find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
+find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/lang\/golang\/golang\-package\.mk/include \$(TOPDIR)\/feeds\/packages\/lang\/golang\/golang\-package\.mk/g' {}
+find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHREPO/PKG_SOURCE_URL:=https:\/\/github\.com/g' {}
+find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload\.github\.com/g' {}
+
+#replace coremark.sh with the new one
+cp -f $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
 
 # themes
 #git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
@@ -118,12 +115,12 @@ rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 
 #取消原主题luci-theme-bootstrap为默认主题
-sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
+#sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
 # 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 # themes添加（svn co 命令意思：指定版本如https://github）
-
+#-------------------------------------------------------------------------------------------------------------------------------
 # 修改luci-theme-argon_armygreen主题渐变色，16进制RGB
 #登录页面背景颜色+半透明
 #sed -i 's/#f7fafc/rgba(134,176,197, .5)/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
@@ -183,9 +180,6 @@ sed -i 's/#4fc352/#B7E0F3/g' package/lean/luci-theme-argon_armygreen/htdocs/luci
 #sed -i 's/#00FF00/#407994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #加载背景
 #sed -i 's/#5e72e4/#407994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
-#-------------------------------------------------------------------------------------------------------------------------------
-#replace coremark.sh with the new one
-cp -f $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
 #-------------------------------------------------------------------------------------------------------------------------------
 ./scripts/feeds update -a
 ./scripts/feeds install -a

@@ -173,6 +173,12 @@ git clone https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-push
 #svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/smartdns package/smartdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
 
+svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+# 编译 po2lmo (如果有po2lmo可跳过)
+pushd package/luci-app-openclash/tools/po2lmo
+make && sudo make install
+popd
+
 #添加istore
 svn co https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
 svn co https://github.com/linkease/istore/trunk/luci/luci-app-store package/luci-app-store

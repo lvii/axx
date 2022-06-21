@@ -169,6 +169,10 @@ git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 git clone https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
 
+#添加smartdns
+#svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/smartdns package/smartdns
+svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
+
 #添加istore
 svn co https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
 svn co https://github.com/linkease/istore/trunk/luci/luci-app-store package/luci-app-store

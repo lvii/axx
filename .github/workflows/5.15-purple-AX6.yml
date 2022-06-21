@@ -101,23 +101,21 @@ jobs:
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
 
-    - name: Update and install feeds
+    - name: Update and install feeds & Load custom configuration
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P1_SH
+        $GITHUB_WORKSPACE/$DIY_P1_SH    
         
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a        
-      
-    - name: Load custom configuration
-      run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH       
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a          
         
     - name: Load custom P3
       run: |

@@ -219,11 +219,6 @@ cd luci-app-wrtbwmon
 git reset --hard ff7773abbf71120fc39a276393b29ba47353a7e2
 cp -r luci-app-wrtbwmon ../package/
 cd ..
-
-#赋予koolddns权限
-chmod 0755 package/luci-app-koolddns/root/etc/init.d/koolddns
-chmod 0755 package/luci-app-koolddns/root/usr/share/koolddns/aliddns
-
 svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-unblockneteasemusic-mini package/luci-app-unblockneteasemusic-mini
 #添加subweb&subconverter
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/quickjspp package/quickjspp

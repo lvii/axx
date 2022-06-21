@@ -100,6 +100,9 @@ jobs:
         echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
+        svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-passwall package/luci-app-passwall
+#        echo "::set-env name=useVersionInfo::$useVersionInfo"
+#        echo "::set-env name=DATE::$(date "+%Y-%m-%d %H:%M:%S")"
 
     - name: Load custom feeds
       run: |
@@ -108,11 +111,10 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
-    - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
-
-    - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
+    - name: Update and install feeds
+      run: |
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
       
     - name: Load custom configuration
       run: |
@@ -121,13 +123,11 @@ jobs:
         chmod +x $DIY_P2_SH       
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-               
         
     - name: Load custom P3
       run: |
         chmod +x $DIY_P3_SH
         $GITHUB_WORKSPACE/$DIY_P3_SH
-
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
@@ -143,17 +143,6 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
-        
-    - name: Build tools
-      run: |
-        make tools/install -j$(nproc) V=s || \
-        make tools/install V=s   
-                
-    - name: Build toolchain
-      run: |
-        make toolchain/install -j$(nproc) V=s || \
-        make toolchain/install V=s   
-        
     - name: Compile the firmware
       id: compile
       run: |

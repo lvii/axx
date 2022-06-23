@@ -42,7 +42,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 # 修改默认wifi名称ssid为100/101
 #sed -i 's/ssid=OpenWrt/ssid=100/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #5g
-sed -i '/	set wireless.default_radio0${devidx}.ssid=OpenWrt/a\set wireless.default_radio0${devidx}.ssid=101' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i '/ set wireless.default_radio0${devidx}.ssid=OpenWrt/a\set wireless.default_radio0${devidx}.ssid=101' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #2.4g
 sed -i '/ set wireless.default_radio1${devidx}.ssid=OpenWrt/a\set wireless.default_radio1${devidx}.ssid=100' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 

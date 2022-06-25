@@ -35,7 +35,7 @@ env:
   REPO_URL: https://github.com/Ansuel/openwrt
   REPO_BRANCH: ipq807x-5.15-pr-wifi-offload
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/AX6_purple.config
+  CONFIG_FILE: config/5.15-pr-wifi-offload.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   DIY_P3_SH: diy-part3.sh

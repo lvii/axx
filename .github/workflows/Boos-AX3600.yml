@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: Almighty-AX3600
+name: Boos-AX3600
 
 on:
   repository_dispatch:
@@ -42,8 +42,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: Almighty-AX3600
-  PRODUCT_NAME: Almighty-AX3600
+  FILE_NAME: Boos-AX3600
+  PRODUCT_NAME: Boos-AX3600
 
 jobs:
   build:

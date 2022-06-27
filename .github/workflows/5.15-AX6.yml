@@ -30,8 +30,8 @@ on:
   #  每周五凌晨四点自动编译。
 
 env:
-  REPO_URL: https://github.com/robimarko/openwrt
-  REPO_BRANCH: ipq807x-5.15 
+  REPO_URL: https://github.com/Boos4721/openwrt
+  REPO_BRANCH: master  
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/AX6-5.15.config
   DIY_P1_SH: diy-part1.sh
@@ -219,8 +219,8 @@ jobs:
           支持已刷WEB升级的openwrt固件，刷入方式：首选恢复出厂设置，然后再系统升级不保留配置刷入.
           2022-3-8更新配置文件,新增小米IPQ807X全系列最新内核5.15，删除冲突及多余的插件.
           全能版每天都会拉取最新源码更新.
-          默认IP： 10.0.0.1 默认密码： password
-          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/robimarko/openwrt)更新记录】
+          默认IP： 10.10.10.1 默认密码： boos
+          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/Boos4721/openwrt)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
 

@@ -19,7 +19,7 @@ on:
         required: false
         default: 'false'      
   schedule:
-     - cron: 30 16 * * *
+     - cron: 0 17 * * *
   #  每天晚上凌晨0点自动编译.
   #  watch:
   #    types: started

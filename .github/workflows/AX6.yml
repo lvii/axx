@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: 5.15-AX6
+name: AX6
 
 on:
   repository_dispatch:
@@ -33,17 +33,18 @@ env:
   REPO_URL: https://github.com/Boos4721/openwrt
   REPO_BRANCH: master  
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/AX6-5.15.config
+  CONFIG_FILE: config/AX6.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
+  DIY_P3_SH: diy-part3.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: 5.15-AX6
-  PRODUCT_NAME: 5.15-AX6
+  FILE_NAME: AX6
+  PRODUCT_NAME: AX6
 
 jobs:
   build:
@@ -124,6 +125,11 @@ jobs:
         chmod +x $DIY_P2_SH       
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        
+    - name: Load custom P3
+      run: |
+        chmod +x $DIY_P3_SH
+        $GITHUB_WORKSPACE/$DIY_P3_SH        
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0

@@ -45,25 +45,25 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 # sed -i 's/ssid=OpenWrt/ssid=100/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 #wifi加密方式，没有是none
-#sed -i 's/encryption=none/encryption=psk2/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i 's/encryption=none/encryption=sae-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #wifi密码
-#sed -i 's/key=password/key=gds.2021/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i 's/key=password/key=gds.2021/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 #-------------------------------------------------------------------------------------------------------------------------------
 
 # 修改默认wifi名称ssid为100/101
 #sed -i 's/ssid=OpenWrt/ssid=100/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #5g
-sed -i '/ set wireless.default_radio0${devidx}.ssid=OpenWrt/a\set wireless.default_radio0${devidx}.ssid=101' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#sed -i '/ set wireless.default_radio0${devidx}.ssid=OpenWrt/a\set wireless.default_radio0${devidx}.ssid=101' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #2.4g
-sed -i '/ set wireless.default_radio1${devidx}.ssid=OpenWrt/a\set wireless.default_radio1${devidx}.ssid=100' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#sed -i '/ set wireless.default_radio1${devidx}.ssid=OpenWrt/a\set wireless.default_radio1${devidx}.ssid=100' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 #wifi加密方式encryption=sae-mixed
 #使用sed 在第四行后添加新字(wifi加密方式，没有是none,wifi密码key为gds.2021)
 #2.4g
-sed -i '/set wireless.default_radio0${devidx}.encryption=sae-mixed/a\set wireless.default_radio0${devidx}.key=gds.2021' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#sed -i '/set wireless.default_radio0${devidx}.encryption=sae-mixed/a\set wireless.default_radio0${devidx}.key=gds.2021' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #5g
-sed -i '/set wireless.default_radio1${devidx}.encryption=sae-mixed/a\set wireless.default_radio1${devidx}.key=gds.2021' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#sed -i '/set wireless.default_radio1${devidx}.encryption=sae-mixed/a\set wireless.default_radio1${devidx}.key=gds.2021' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #-------------------------------------------------------------------------------------------------------------------------------
 # 状态系统增加个性信息
 #sed -i "s/exit 0//" package/lean/default-settings/files/zzz-default-settings

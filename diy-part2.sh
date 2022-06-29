@@ -39,6 +39,18 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #开启MU-MIMO
 #sed -i 's/mu_beamformer=0/mu_beamformer=1/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
+#-------------------------------------------------------------------------------------------------------------------------------
+
+# 修改默认wifi名称ssid为100
+# sed -i 's/ssid=OpenWrt/ssid=100/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+
+#wifi加密方式，没有是none
+#sed -i 's/encryption=none/encryption=psk2/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#wifi密码
+#sed -i 's/key=password/key=gds.2021/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+
+#-------------------------------------------------------------------------------------------------------------------------------
+
 # 修改默认wifi名称ssid为100/101
 #sed -i 's/ssid=OpenWrt/ssid=100/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #5g

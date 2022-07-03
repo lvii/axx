@@ -183,6 +183,12 @@ sed -i 's/#4fc352/#B7E0F3/g' package/lean/luci-theme-argon_armygreen/htdocs/luci
 #sed -i 's/#5e72e4/#407994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #-------------------------------------------------------------------------------------------------------------------------------
 #添加额外软件包
+# themes添加（svn co 命令意思：指定版本如https://github）
+
+###################添加lean的cpu频率和温度显示
+#autocore: merge immortalwrt version
+svn co https://github.com/Boos4721/openwrt/package/trunk/lean package/lean
+        
 # nss_packages
 #git clone https://github.com/robimarko/nss-packages package/nss_packages
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter

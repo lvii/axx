@@ -102,8 +102,7 @@ jobs:
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
         
 #       添加lean的cpu频率和温度显示#autocore: merge immortalwrt version
-
-        svn co https://github.com/Boos4721/openwrt/package/trunk/lean package/lean
+        git clone https://github.com/Boos4721/openwrt/package/trunk/lean package/lean
 
 #        svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-passwall package/luci-app-passwall
 #        echo "::set-env name=useVersionInfo::$useVersionInfo"

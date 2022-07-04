@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: 5.15-purple-AX6
+name: 5.15-pr-AX6
 
 on:
   repository_dispatch:
@@ -30,10 +30,8 @@ on:
   #  每周五凌晨四点自动编译。
 
 env:
- # REPO_URL: https://github.com/robimarko/openwrt
- # REPO_BRANCH: ipq807x-5.15-pr 
-  REPO_URL: https://github.com/Boos4721/openwrt
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/robimarko/openwrt
+  REPO_BRANCH: ipq807x-5.15-pr 
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/AX6-5.15.config
   DIY_P1_SH: diy-part1.sh
@@ -45,8 +43,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: 5.15-purple-AX6
-  PRODUCT_NAME: 5.15-purple-AX6
+  FILE_NAME: 5.15-pr-AX6
+  PRODUCT_NAME: 5.15-pr-AX6
 
 jobs:
   build:
@@ -102,8 +100,8 @@ jobs:
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
         
-        rm -rf openwrt/target/linux/ipq807x
-        svn co https://github.com/robimarko/openwrt/trunk/target/linux/ipq807x
+#        rm -rf openwrt/target/linux/ipq807x
+#        svn co https://github.com/robimarko/openwrt/trunk/target/linux/ipq807x
         
 #        svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-passwall package/luci-app-passwall
 #        echo "::set-env name=useVersionInfo::$useVersionInfo"

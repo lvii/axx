@@ -187,7 +187,7 @@ sed -i 's/#4fc352/#B7E0F3/g' package/lean/luci-theme-argon_armygreen/htdocs/luci
 
 ###################添加lean的cpu频率和温度显示
 #autocore: merge immortalwrt version
-svn co https://github.com/Boos4721/openwrt/package/trunk/lean package/lean
+#svn co https://github.com/Boos4721/openwrt/package/trunk/lean package/lean
         
 # nss_packages
 #git clone https://github.com/robimarko/nss-packages package/nss_packages

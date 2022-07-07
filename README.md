@@ -29,7 +29,7 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 - 云编译脚本会调用此仓库软件编译OpenWrt固件，每日一次编译。
 - 修改默认wifi名称ssid为MIWIFI_2022
 - 默认源编译的固件特别说明： 管理地址默认IP：10.0.0.1   登陆密码：password WIFI密码：password
-- Boos源编译的固件特别说明： 管理地址默认IP：10.10.10.1 登陆密码：boos     WIFI密码：12345678
+- Boos源编译的固件特别说明： 管理地址默认IP：10.10.10.1 登陆密码：boos     WIFI密码：1234567890
 -------------
 温馨提示
 -------------

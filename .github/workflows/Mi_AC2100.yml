@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: Redmi_AC2100
+name: Mi_AC2100
 
 on:
   repository_dispatch:
@@ -42,8 +42,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: Redmi_AC2100
-  PRODUCT_NAME: Redmi_AC2100
+  FILE_NAME: Mi_AC2100
+  PRODUCT_NAME: Mi_AC2100
 
 jobs:
   build:

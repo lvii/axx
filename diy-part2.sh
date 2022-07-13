@@ -40,17 +40,15 @@ sed -i '/uci commit system/i\uci set system.@system[0].hostname='AutoBuildWrt'' 
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
 #开启MU-MIMO
-#sed -i 's/mu_beamformer=0/mu_beamformer=1/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-
+sed -i 's/mu_beamformer=0/mu_beamformer=1/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #-------------------------------------------------------------------------------------------------------------------------------
-
 # 修改默认wifi名称ssid为MIWIFI_2022
 sed -i 's/ssid=OpenWrt/ssid=MIWIFI_2022/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
-# 修改默认wifi密码key为password
+# 修改默认wifi密码key为gds.2022
 sed -i 's/encryption=none/encryption=sae-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #使用sed 在第四行后添加新字
-sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless.default_radio${devidx}.key=password' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless.default_radio${devidx}.key=gds.2022' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 #-------------------------------------------------------------------------------------------------------------------------------
 

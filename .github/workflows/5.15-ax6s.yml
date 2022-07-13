@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: 5.15-AX6S
+name: 5.15-ax6s
 
 on:
   repository_dispatch:
@@ -33,7 +33,7 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/AX6S-5.15.config
+  CONFIG_FILE: config/5.15-ax6s.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
@@ -42,8 +42,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: 5.15-AX6S
-  PRODUCT_NAME: 5.15-AX6S
+  FILE_NAME: 5.15-ax6s
+  PRODUCT_NAME: 5.15-ax6s
 
 jobs:
   build:

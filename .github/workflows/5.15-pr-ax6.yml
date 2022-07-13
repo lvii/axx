@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: 5.15-pr-AX6
+name: 5.15-pr-ax6
 
 on:
   repository_dispatch:
@@ -43,8 +43,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: 5.15-pr-AX6
-  PRODUCT_NAME: 5.15-pr-AX6
+  FILE_NAME: 5.15-pr-ax6
+  PRODUCT_NAME: 5.15-pr-ax6
 
 jobs:
   build:

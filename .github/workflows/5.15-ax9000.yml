@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: 5.15-AX9000
+name: 5.15-ax9000
 
 on:
   repository_dispatch:
@@ -33,7 +33,7 @@ env:
   REPO_URL: https://github.com/robimarko/openwrt
   REPO_BRANCH: ipq807x-5.15
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/AX9000-5.15.config
+  CONFIG_FILE: config/5.15-ax9000.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
@@ -42,8 +42,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: 5.15-AX9000
-  PRODUCT_NAME: 5.15-AX9000
+  FILE_NAME: 5.15-ax9000
+  PRODUCT_NAME: 5.15-ax9000
 
 jobs:
   build:
@@ -216,7 +216,6 @@ jobs:
           2、发行版中只提供完整的固件
           3、需要单独IPK请到分支下载
           4、驱动：默认NSS加速和sfe加速
-          此版本是全能版本，也是自定义版本，涵盖所有插件，想要榨干路由器性能和内存的朋友可以尝试刷入.
           支持已刷WEB升级的openwrt固件，刷入方式：首选恢复出厂设置，然后再系统升级不保留配置刷入.
           2022-3-8更新配置文件,新增小米IPQ807X全系列最新内核5.15，删除冲突及多余的插件.
           全能版每天都会拉取最新源码更新.

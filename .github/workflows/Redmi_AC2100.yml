@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: Lede-AC2100
+name: Redmi_AC2100
 
 on:
   repository_dispatch:
@@ -42,8 +42,8 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: Lede-AC2100
-  PRODUCT_NAME: Lede-AC2100
+  FILE_NAME: Redmi_AC2100
+  PRODUCT_NAME: Redmi_AC2100
 
 jobs:
   build:
@@ -219,7 +219,7 @@ jobs:
           支持已刷WEB升级的openwrt固件，刷入方式：首选恢复出厂设置，然后再系统升级不保留配置刷入.
           全能版每天都会拉取最新源码更新.
           默认IP： 10.0.0.1 默认密码： password
-          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/lede/openwrt)更新记录】
+          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
 

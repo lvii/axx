@@ -127,7 +127,7 @@ git clone https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # 三秋API >> 随机二次元图片API接口
-sed -i 's/background-image:url(<%=bgUrl%>)/background-image:url(https://api.ghser.com/random/api.php)/g' feeds/luci/themes/luci-theme-argon/luasrc/view/themes/argon/sysauth.htm
+# https://api.ghser.com/random/api.php
 
 # themes添加（svn co 命令意思：指定版本如https://github）
 #-------------------------------------------------------------------------------------------------------------------------------

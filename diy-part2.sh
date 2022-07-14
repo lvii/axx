@@ -125,6 +125,10 @@ git clone https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-
 
 # 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+
+# 三秋API >> 随机二次元图片API接口
+sed -i 's/background-image:url(<%=bgUrl%>)/background-image:url(https://api.ghser.com/random/api.php)/g' feeds/luci/themes/luci-theme-argon/luasrc/view/themes/argon/sysauth.htm
+
 # themes添加（svn co 命令意思：指定版本如https://github）
 #-------------------------------------------------------------------------------------------------------------------------------
 # 修改luci-theme-argon_armygreen主题渐变色，16进制RGB

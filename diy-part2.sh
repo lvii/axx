@@ -15,7 +15,6 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
-sed -i 's/10.10.10.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # Modify hostname
 #sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate 
@@ -25,11 +24,9 @@ sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-defaul
 #-------------------------------------------------------------------------------------------------------------------------------
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 sed -i 's/OpenWrt /AutoBuild ALPHA $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g' package/lean/default-settings/files/zzz-default-settings
-sed -i 's/OpenWrt /AutoBuild ALPHA $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g' package/emortal/default-settings/files/zzz-default-settings
 
 # 修改主机名字，把Xiaomi-AX6修改你喜欢的就行（不能纯数字或者使用中文）
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='AutoBuildWrt'' package/lean/default-settings/files/zzz-default-settings
-sed -i '/uci commit system/i\uci set system.@system[0].hostname='AutoBuildWrt'' package/emortal/default-settings/files/zzz-default-settings
 
 #更改主机型号，支持中文。 
 #sed -i 's/model = "Redmi AX6"/model = "红米AX6路由"/g' target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts

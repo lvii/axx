@@ -114,17 +114,17 @@ git clone https://github.com/Joecaicai/luci-theme-argon_armygreen.git package/le
 rm -rf feeds/luci/themes/luci-theme-argon
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 
-git clone https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
+#git clone https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 
+# 三秋API >> 随机二次元图片API接口
+# https://api.ghser.com/random/api.php
+git clone https://github.com/Joecaicai/luci-theme-argon package/lean/luci-theme-argon
 
 #取消原主题luci-theme-bootstrap为默认主题
 #sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
 # 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
-
-# 三秋API >> 随机二次元图片API接口
-# https://api.ghser.com/random/api.php
 
 # themes添加（svn co 命令意思：指定版本如https://github）
 #-------------------------------------------------------------------------------------------------------------------------------
@@ -190,11 +190,7 @@ sed -i 's/#4fc352/#B7E0F3/g' package/lean/luci-theme-argon_armygreen/htdocs/luci
 #-------------------------------------------------------------------------------------------------------------------------------
 #添加额外软件包
 # themes添加（svn co 命令意思：指定版本如https://github）
-
-###################添加lean的cpu频率和温度显示
-#autocore: merge immortalwrt version
-#svn co https://github.com/Boos4721/openwrt/package/trunk/lean package/lean
-        
+      
 # nss_packages
 #git clone https://github.com/robimarko/nss-packages package/nss_packages
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter

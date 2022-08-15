@@ -40,7 +40,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 sed -i 's/mu_beamformer=0/mu_beamformer=1/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #-------------------------------------------------------------------------------------------------------------------------------
 # 修改默认wifi名称ssid为MIWIFI_2022
-sed -i 's/ssid=OpenWrt/ssid=MIWIFI_2022/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#sed -i 's/ssid=OpenWrt/ssid=MIWIFI_2022/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 # 修改默认wifi密码key为gds.2022
 sed -i 's/encryption=none/encryption=sae-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh

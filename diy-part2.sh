@@ -204,7 +204,7 @@ git clone https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-push
 svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
 
 #svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
-git clone https://github.com/vernesong/OpenClash.git package/OpenClash
+git clone -b master --depth 1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/chinadns-ng

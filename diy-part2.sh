@@ -19,7 +19,7 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 # Modify hostname
 #sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate 
 
-# Delete default password:password
+# Delete default password
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
 #-------------------------------------------------------------------------------------------------------------------------------
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
@@ -193,12 +193,6 @@ sed -i 's/#4fc352/#B7E0F3/g' package/lean/luci-theme-argon_armygreen/htdocs/luci
 #添加额外软件包
 # themes添加（svn co 命令意思：指定版本如https://github）
       
-# nss_packages
-#git clone https://github.com/robimarko/nss-packages package/nss_packages
-git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
-git clone https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
-
 #添加smartdns
 #svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/smartdns package/smartdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
@@ -206,47 +200,6 @@ svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartd
 #svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 git clone -b master --depth 1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/chinadns-ng
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping package/tcping
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go package/trojan-go
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/trojan-plus
-#svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-filebrowser package/luci-app-filebrowser
-#svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/utils/filebrowser package/filebrowser
-#svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-fileassistant package/luci-app-fileassistant
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-socat package/luci-app-socat
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-passwall package/luci-app-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/ssocks
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2tcp package/dns2tcp
-svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
-svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
-svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
-svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
-svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
-svn co https://github.com/fw876/helloworld/trunk/simple-obfs package/simple-obfs
-svn co https://github.com/fw876/helloworld/trunk/trojan package/trojan
-svn co https://github.com/fw876/helloworld/trunk/v2ray-core package/v2ray-core
-svn co https://github.com/fw876/helloworld/trunk/v2ray-geodata package/v2ray-geodata
-svn co https://github.com/fw876/helloworld/trunk/sagernet-core package/sagernet-core
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core
-#svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-gost package/luci-app-gost
-#svn co https://github.com/kenzok8/openwrt-packages/trunk/gost package/gost
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-gost package/luci-app-gost
-svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/gost package/gost
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
-svn co https://github.com/kenzok8/openwrt-packages/trunk/mosdns package/mosdns
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-mosdns package/luci-app-mosdns
-git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
-# cd package/luci-app-serverchan && git reset --hard 6387b3b47b03d95d3f3bcd42ff98db5bb84fd056 && git pull && cd ../..
-svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
-git clone https://github.com/brvphoenix/luci-app-wrtbwmon
-cd luci-app-wrtbwmon
-git reset --hard ff7773abbf71120fc39a276393b29ba47353a7e2
-cp -r luci-app-wrtbwmon ../package/
-cd ..
 #添加subweb&subconverter
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/quickjspp package/quickjspp
 svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/libs/jpcre2 package/jpcre2

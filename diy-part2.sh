@@ -21,7 +21,9 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # Delete default password
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
+
 #-------------------------------------------------------------------------------------------------------------------------------
+
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 sed -i 's/OpenWrt /AutoBuild ALPHA $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g' package/lean/default-settings/files/zzz-default-settings
 
@@ -38,7 +40,9 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 #开启MU-MIMO
 sed -i 's/mu_beamformer=0/mu_beamformer=1/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+
 #-------------------------------------------------------------------------------------------------------------------------------
+
 # 修改默认wifi名称ssid为MIWIFI_2022
 #sed -i 's/ssid=OpenWrt/ssid=MIWIFI_2022/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
@@ -49,20 +53,6 @@ sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless
 
 #-------------------------------------------------------------------------------------------------------------------------------
 
-# 修改默认wifi名称ssid为100/101
-#sed -i 's/ssid=OpenWrt/ssid=100/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-#5g
-#sed -i '/ set wireless.default_radio0${devidx}.ssid=OpenWrt/a\set wireless.default_radio0${devidx}.ssid=101' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-#2.4g
-#sed -i '/ set wireless.default_radio1${devidx}.ssid=OpenWrt/a\set wireless.default_radio1${devidx}.ssid=100' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-
-#wifi加密方式encryption=sae-mixed
-#使用sed 在第四行后添加新字(wifi加密方式，没有是none,wifi密码key为gds.2021)
-#2.4g
-#sed -i '/set wireless.default_radio0${devidx}.encryption=sae-mixed/a\set wireless.default_radio0${devidx}.key=gds.2021' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-#5g
-#sed -i '/set wireless.default_radio1${devidx}.encryption=sae-mixed/a\set wireless.default_radio1${devidx}.key=gds.2021' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-#-------------------------------------------------------------------------------------------------------------------------------
 # 状态系统增加个性信息
 #sed -i "s/exit 0//" package/lean/default-settings/files/zzz-default-settings
 
@@ -89,7 +79,9 @@ sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless
 #echo "" >> package/lean/default-settings/files/zzz-default-settings
 #echo "" >> package/lean/default-settings/files/zzz-default-settings
 #echo "exit 0" >> package/lean/default-settings/files/zzz-default-settings
+
 #-------------------------------------------------------------------------------------------------------------------------------
+
 #删除原默认主题
 #rm -rf package/emortal/luci-theme-argon
 
@@ -103,20 +95,15 @@ rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-wrtbwmon
 rm -rf feeds/packages/net/smartdns
 
+#-------------------------------------------------------------------------------------------------------------------------------
 
-# themes
-#git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-#git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
-
-git clone https://github.com/Joecaicai/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
-
+# themes添加（svn co 命令意思：指定版本如https://github）
 #添加argon-config 使用最新argon
 #git clone https://github.com/jerrykuku/luci-app-argon-config package/lean/luci-app-argon-config
 rm -rf feeds/luci/themes/luci-theme-argon
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
-
-#git clone https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
+# git clone https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
+# git clone https://github.com/Joecaicai/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
 
 # 三秋API >> 随机二次元图片API接口
 # https://api.ghser.com/random/api.php
@@ -128,8 +115,8 @@ git clone https://github.com/Joecaicai/luci-theme-argon package/lean/luci-theme-
 # 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
-# themes添加（svn co 命令意思：指定版本如https://github）
 #-------------------------------------------------------------------------------------------------------------------------------
+
 # 修改luci-theme-argon_armygreen主题渐变色，16进制RGB
 #登录页面背景颜色+半透明
 #sed -i 's/#f7fafc/rgba(134,176,197, .5)/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
@@ -189,7 +176,9 @@ sed -i 's/#4fc352/#B7E0F3/g' package/lean/luci-theme-argon_armygreen/htdocs/luci
 #sed -i 's/#00FF00/#407994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #加载背景
 #sed -i 's/#5e72e4/#407994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
+
 #-------------------------------------------------------------------------------------------------------------------------------
+
 #添加额外软件包
 # themes添加（svn co 命令意思：指定版本如https://github）
       

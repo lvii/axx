@@ -23,7 +23,7 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 关于第三方全家桶软件仓库更新的说明 [![](https://img.shields.io/badge/-软件库更新说明-green.svg)](#软件库更新说明-)
 -------------
 - 固件来源：
-[![Lean](https://img.shields.io/badge/Lede-Lean-red.svg?style=flat&logo=appveyor)](https://github.com/coolsnowwolf/lede) 
+[![Lean](https://img.shields.io/badge/OpenWrt-Lean-red.svg?style=flat&logo=appveyor)](https://github.com/coolsnowwolf/lede) 
  [![Lienol](https://img.shields.io/badge/Package-Joecaicai-blueviolet.svg?style=flat&logo=appveyor)](https://github.com/Joecaicai/openwrt-packages)  [![immortalwrt](https://img.shields.io/badge/OpenWrt-immortalwrt-orange.svg?style=flat&logo=appveyor)](https://github.com/immortalwrt/immortalwrt) [![Joecaicai](https://img.shields.io/badge/Mod-Joecaicai-success.svg?style=flat&logo=appveyor)](https://github.com/Joecaicai/Actions-OpenWrt/actions)
 - 每日两次自动拉取更新所有上游源码至上方软件仓库，所以此软件仓库永远都是最新的。
 - 云编译脚本会调用此仓库软件编译OpenWrt固件，每日一次编译。

@@ -63,18 +63,13 @@ Actions-OpenWrt — 多设备固件自动云编译 [![](https://img.shields.io/b
 ======================
 1. 首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS  
 2. 命令行输入
-
-```bash
-sudo apt-get update
-```
-然后输入命令搭建系统环境
 -------------
 **如果你使用`root`执行了以上命令，那从此时开始，你必须使用`非root`权限用户进行后续操作**
 -------------
 安装编译依赖 
 -------------
 
-   ```bash
+```bash
 sudo apt update -y
 sudo apt full-upgrade -y
 sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
@@ -83,7 +78,7 @@ git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev lib
 libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \
 mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip libpython3-dev qemu-utils \
 rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
-   ```
+```
    
 3. 使用 `git clone https://github.com/coolsnowwolf/lede` 命令下载好源代码，然后 `cd lede` 进入目录
 

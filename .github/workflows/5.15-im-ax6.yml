@@ -19,7 +19,7 @@ on:
         required: false
         default: 'false'      
   schedule:
-     - cron: 0 16 * * fri
+  #   - cron: 0 16 * * fri
   #  每天晚上凌晨0点自动编译.
   #  watch:
   #    types: started
@@ -42,6 +42,8 @@ env:
   UPLOAD_COWTRANSFER: true
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
+  REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+  SCKEY: ${{ secrets.SCKEY }}
   TZ: Asia/Shanghai
   FILE_NAME: 5.15-im-ax6
   PRODUCT_NAME: 5.15-im-ax6
@@ -51,12 +53,41 @@ jobs:
     runs-on: ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
 
+    name: Build ${{matrix.target}}
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ["${{ github.event.client_payload.target }}"]
+        
     steps:
     #- name: WeChat notification
     #  run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.FILE_NAME }}开始编译
-      
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  
+
+    - name: cancel running workflows
+      uses: styfle/cancel-workflow-action@main
+      if: contains(github.event.action, 'cw')
+      with:
+        workflow_id: Packages-AutoBuild.yml
+        access_token: ${{ github.token }}
+
+#    - name: Checkout
+#     uses: actions/checkout@master
+
+    - name: Trigger Packages Update
+      run: |
+        gitdate=$(curl -H "Authorization: token ${{ secrets.REPO_TOKEN }}" -s "https://api.github.com/repos/Joecaicai/openwrt-packages/actions/runs" | jq -r '.workflow_runs[0].created_at')
+        gitdate=$(date -d "$gitdate" +%s)
+        now=$(date -d "$(date)" +%s)
+        if [[ $(expr $gitdate + 120) < $now ]]; then
+        curl -X POST https://api.github.com/repos/Joecaicai/openwrt-packages/dispatches \
+        -H "Accept: application/vnd.github.everest-preview+json" \
+        -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
+        --data '{"event_type": "update"}'
+        fi
 
     - name: Check server performance
       run: |
@@ -100,13 +131,6 @@ jobs:
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
         
-#        rm -rf openwrt/target/linux/ipq807x
-#        svn co https://github.com/robimarko/openwrt/trunk/target/linux/ipq807x
-        
-#        svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-passwall package/luci-app-passwall
-#        echo "::set-env name=useVersionInfo::$useVersionInfo"
-#        echo "::set-env name=DATE::$(date "+%Y-%m-%d %H:%M:%S")"
-
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
@@ -199,7 +223,15 @@ jobs:
         cd openwrt/bin/targets/*/*
         rm -rf packages config.buildinfo feeds.buildinfo sha256sums version.buildinfo *.manifest
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-        echo "::set-output name=status::success"
+        Emoji=("🎉" "🤞" "✨" "🎁" "🎈" "🎄" "🎨" "💋" "🍓" "🍕" "🍉" "💐" "🌴" "🚀" "🛸" "🗽" "⛅" "🌈" "🔥" "⛄" "🐶" "🏅" "🦄" "🐤")
+        echo "EMOJI=${Emoji[$[$RANDOM % ${#Emoji[@]}]]}" >> $GITHUB_ENV
+        if [[ $(ls -l openwrt/error* | grep "^-" | wc -l) -le 0 ]]; then
+           echo "NAME=${Emoji[$[$RANDOM % ${#Emoji[@]}]]} ${{ env.date2 }} ${{matrix.target}} ${{ env.EMOJI }}" >> $GITHUB_ENV
+        else
+           echo "NAME=❌ ${{ env.date2 }} ${{matrix.target}} ❌" >> $GITHUB_ENV
+        fi        
+        
+#       echo "::set-output name=status::success"
 #       echo "::set-env name=FIRMWARE::$PWD"
         
     - name: Upload firmware directory
@@ -231,21 +263,6 @@ jobs:
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/1715173329/imoutowrt/master-ax3000-5.15)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
-
-    - name: Apply
-      run: |
-        Emoji=("🎉" "🤞" "✨" "🎁" "🎈" "🎄" "🎨" "💋" "🍓" "🍕" "🍉" "💐" "🌴" "🚀" "🛸" "🗽" "⛅" "🌈" "🔥" "⛄" "🐶" "🏅" "🦄" "🐤")
-        git add .
-        git commit -m "${Emoji[$[$RANDOM % ${#Emoji[@]}]]} Sync $(date +%Y-%m-%d" "%H:%M:%S)"
-        for pkg in $(git diff-tree --no-commit-id --name-only HEAD); do
-          if [ "$(grep "PKG_RELEASE" $pkg/Makefile)" ]; then
-            sed -i "s/PKG_RELEASE:=.*/PKG_RELEASE:=$(git rev-list --count master $pkg)/" $pkg/Makefile || true
-          fi
-        done
-        git reset --soft HEAD^
-        git add .
-        git commit -m "${Emoji[$[$RANDOM % ${#Emoji[@]}]]} Sync $(date +%Y-%m-%d" "%H:%M:%S)"
-        git push -f
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main

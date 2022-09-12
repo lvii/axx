@@ -105,6 +105,9 @@ rm -rf feeds/luci/themes/luci-theme-argon
 # git clone https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 # git clone https://github.com/Joecaicai/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
 
+#  韩小韩API接口 >> 随机电脑分辨率美图API接口
+# https://api.vvhan.com/api/girl
+
 # 三秋API >> 随机二次元图片API接口
 # https://api.ghser.com/random/api.php
 git clone https://github.com/Joecaicai/luci-theme-argon package/lean/luci-theme-argon

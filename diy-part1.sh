@@ -14,8 +14,8 @@
 # fw876/helloworld (Uncomment a feed source)
 
 #sed -i "/helloworld/d" "feeds.conf.default"
-#echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
-echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
+#echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 #echo 'src-git xiaoqingfeng https://github.com/xiaoqingfengATGH/feeds-xiaoqingfeng' >>feeds.conf.default
 
 #====================================================================
@@ -27,6 +27,6 @@ sed -i '$a src-git-full kenzo https://github.com/kenzok8/openwrt-packages' feeds
 #sed -i '$a src-git-full liuran001 https://github.com/liuran001/openwrt-packages' feeds.conf.default
 
 # passwall依赖
-sed -i '$a src-git-full small https://github.com/kenzok8/small' feeds.conf.default
+#sed -i '$a src-git-full small https://github.com/kenzok8/small' feeds.conf.default
 
 #====================================================================

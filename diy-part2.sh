@@ -14,21 +14,21 @@
 #================================================================================================
 
 # Modify default IP
-sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_generate
 
 # Modify hostname
-#sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate 
+sed -i 's/OpenWrt/Redmi_AX6/g' package/base-files/files/bin/config_generate 
 
 # Delete default password
-sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
+#sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
 
 #-------------------------------------------------------------------------------------------------------------------------------
 
 # Modify the version number版本号里显示一个自己的名字（AutoBuild $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
-sed -i 's/OpenWrt /AutoBuild ALPHA $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g' package/lean/default-settings/files/zzz-default-settings
+sed -i 's/OpenWrt /AutoBuild ALPHA $(TZ=UTC-8 date "+%Y.%m.%d") @ zzhz /g' package/lean/default-settings/files/zzz-default-settings
 
 # 修改主机名字，把Xiaomi-AX6修改你喜欢的就行（不能纯数字或者使用中文）
-sed -i '/uci commit system/i\uci set system.@system[0].hostname='AutoBuildWrt'' package/lean/default-settings/files/zzz-default-settings
+sed -i '/uci commit system/i\uci set system.@system[0].hostname='Redmi_AX6'' package/lean/default-settings/files/zzz-default-settings
 
 #更改主机型号，支持中文。 
 #sed -i 's/model = "Redmi AX6"/model = "红米AX6路由"/g' target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
@@ -44,12 +44,12 @@ sed -i 's/mu_beamformer=0/mu_beamformer=1/g' package/kernel/mac80211/files/lib/w
 #-------------------------------------------------------------------------------------------------------------------------------
 
 # 修改默认wifi名称ssid为MIWIFI_2022
-#sed -i 's/ssid=OpenWrt/ssid=MIWIFI_2022/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i 's/ssid=OpenWrt/ssid=zzhz/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 # 修改默认wifi密码key为gds.2022
-sed -i 's/encryption=none/encryption=sae-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#sed -i 's/encryption=none/encryption=sae-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #使用sed 在第四行后添加新字
-sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless.default_radio${devidx}.key=gds.2022' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#sed -i '/set wireless.default_radio${devidx}.encryption=sae-mixed/a\set wireless.default_radio${devidx}.key=gds.2022' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 #-------------------------------------------------------------------------------------------------------------------------------
 

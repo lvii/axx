@@ -21,7 +21,9 @@ echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf
 # 添加插件源码
 sed -i '$a src-git-full kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 #sed -i '$a src-git-full Boos4721 https://github.com/Boos4721/OpenWrt-Packages' feeds.conf.default
-
+sed -i '$a src-git-full leda https://github.com/coolsnowwolf/packages' feeds.conf.default
+sed -i '$a src-git luci-lede https://github.com/coolsnowwolf/luci' feeds.conf.default
+sed -i '$a src-git routing-lede https://github.com/coolsnowwolf/routing' feeds.conf.default
 # Argon_dark_purple
 #sed -i '$a src-git-full liuran001 https://github.com/liuran001/openwrt-packages' feeds.conf.default
 
